@@ -572,7 +572,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>Object.keys(PatientCaseDataCategories).length</code>
+                        <i>Default value : </i><code>Object.keys(PatientCaseDataCategoryChoices).length</code>
                     </td>
                 </tr>
                     <tr>
@@ -596,7 +596,7 @@ import { RatingModule } from &#x27;primeng/rating&#x27;;
 import { AvatarModule } from &#x27;primeng/avatar&#x27;;
 import { AvatarGroupModule } from &#x27;primeng/avatargroup&#x27;;
 import { SkeletonModule } from &#x27;primeng/skeleton&#x27;;
-import { DashboardService, PatientCaseDataCategories, CountsPerMonth } from &#x27;onconova-api-client&#x27;;
+import { DashboardService, PatientCaseDataCategoryChoices, CountsPerMonth } from &#x27;onconova-api-client&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
 import { FormsModule } from &#x27;@angular/forms&#x27;;
 import { rxResource } from &#x27;@angular/core/rxjs-interop&#x27;;
@@ -682,7 +682,7 @@ import { ProgressBarModule } from &#x27;primeng/progressbar&#x27;;
 export class DataCompletionStatsComponent {
     readonly #layoutService &#x3D; inject(LayoutService);
     readonly #dashboardService &#x3D; inject(DashboardService);
-    readonly totalCategories &#x3D; Object.keys(PatientCaseDataCategories).length;
+    readonly totalCategories &#x3D; Object.keys(PatientCaseDataCategoryChoices).length;
     public data &#x3D; rxResource({
         request: () &#x3D;&gt; ({}),
         loader: () &#x3D;&gt; this.#dashboardService.getDataCompletionStats()

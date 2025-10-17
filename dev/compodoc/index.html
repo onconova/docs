@@ -80,31 +80,68 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content getting-started">
+               <div class="content overview">
                    <div class="content-data">
 
-<h1>Mkdocs Onconova Documentation</h1>
-<h2>Installation</h2>
-<ol>
-<li>Install compodoc</li>
-</ol>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-shell">npm install -g &#64;compodoc/compodoc</code></pre></div><ol start="2">
-<li>Install FHIR SUSHI and IG Publisher</li>
-</ol>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-shell">npm install -g fsh-sushi
-./fhir/ig/_updatePublisher.sh</code></pre></div><ol start="3">
-<li>Install Mkdocs and dependencies</li>
-</ol>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-shell">pip install .</code></pre></div><ol start="3">
-<li>Install server package</li>
-</ol>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-shell">pip install ../server</code></pre></div><h2>Build full docs</h2>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-shell">rm -rf src/compodoc/ &amp;&amp; rm -rf src/fhir-ig &amp;&amp; \
-npx &#64;compodoc/compodoc -p ../client/tsconfig.doc.json -d ./src/compodoc/ -y src/assets/css/compodoc/ --hideGenerator --theme material &amp;&amp; \
-cd ../fhir/ig/ &amp;&amp; ./_genonce.sh &amp;&amp; mv ./output ../../docs/src/fhir-ig &amp;&amp; cd ../../docs &amp;&amp; \
-mkdocs serve</code></pre></div>
 
-
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Overview</li>
+</ol>
+    
+<div class="tab-content overview">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card text-center">
+                <div class="card-block">
+                    <h4 class="card-title"><span class="icon ion-md-cog"></span></h4>
+                    <p class="card-text">86 Components</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card text-center">
+                <div class="card-block">
+                    <h4 class="card-title"><span class="icon ion-md-code-working"></span></h4>
+                    <p class="card-text">1 Directive</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card text-center">
+                <div class="card-block">
+                    <h4 class="card-title"><span class="icon ion-md-arrow-round-down"></span></h4>
+                    <p class="card-text">7 Injectables</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card text-center">
+                <div class="card-block">
+                    <h4 class="card-title"><span class="icon ion-md-add"></span></h4>
+                    <p class="card-text">8 Pipes</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card text-center">
+                <div class="card-block">
+                    <h4 class="card-title"><span class="icon ion-ios-lock"></span></h4>
+                    <p class="card-text">2 Guards</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card text-center">
+                <div class="card-block">
+                    <h4 class="card-title"><span class="icon ion-md-information-circle-outline"></span></h4>
+                    <p class="card-text">28 Interfaces</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/libs/svg-pan-zoom.min.js"></script>
+<script src="js/svg-pan-zoom.controls.js"></script> 
 
 
 
@@ -148,7 +185,7 @@ mkdocs serve</code></pre></div>
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'overview';
             var COMPODOC_CURRENT_PAGE_URL = 'index.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>

@@ -291,7 +291,7 @@ import { Skeleton } from &#x27;primeng/skeleton&#x27;;
 
 import { AuthService } from &#x27;src/app/core/auth/services/auth.service&#x27;;
 import { CaseManagerDrawerComponent } from &#x27;../case-manager-drawer/case-manager-drawer.component&#x27;;
-import { PatientCasesService, PatientCaseDataCategories } from &#x27;onconova-api-client&#x27;;
+import { PatientCasesService, PatientCaseDataCategoryChoices } from &#x27;onconova-api-client&#x27;;
 
 import { LucideAngularModule } from &#x27;lucide-angular&#x27;;
 import { LucideIconData } from &#x27;lucide-angular/icons/types&#x27;;
@@ -342,7 +342,7 @@ export class CaseManagerPanelComponent {
 
 
     public caseId &#x3D; input.required&lt;string&gt;();
-    public category &#x3D; input.required&lt;PatientCaseDataCategories&gt;();
+    public category &#x3D; input.required&lt;PatientCaseDataCategoryChoices&gt;();
     public service &#x3D; input.required&lt;DataService&gt;();
     public title &#x3D; input&lt;string&gt;();
     public icon &#x3D; input.required&lt;LucideIconData&gt;();

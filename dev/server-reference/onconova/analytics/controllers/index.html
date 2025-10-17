@@ -66,17 +66,17 @@
     
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
+      <link rel="stylesheet" href="../../../../assets/document_dates/tippy/tippy.css">
+    
+      <link rel="stylesheet" href="../../../../assets/document_dates/tippy/backdrop.css">
+    
+      <link rel="stylesheet" href="../../../../assets/document_dates/tippy/shift-away.css">
+    
       <link rel="stylesheet" href="../../../../assets/document_dates/tippy/light.css">
     
       <link rel="stylesheet" href="../../../../assets/document_dates/tippy/material.css">
     
-      <link rel="stylesheet" href="../../../../assets/document_dates/tippy/shift-away.css">
-    
       <link rel="stylesheet" href="../../../../assets/document_dates/tippy/scale.css">
-    
-      <link rel="stylesheet" href="../../../../assets/document_dates/tippy/backdrop.css">
-    
-      <link rel="stylesheet" href="../../../../assets/document_dates/tippy/tippy.css">
     
       <link rel="stylesheet" href="../../../../assets/document_dates/core/core.css">
     
@@ -419,13 +419,13 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../fhir-ig/index.html" class="md-tabs__link">
+      <a href="https://onconova.github.io/fhir/" class="md-tabs__link">
         
   
   
     
   
-  FHIR Implementation Guide
+  FHIR IG
 
       </a>
     </li>
@@ -5281,12 +5281,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../fhir-ig/index.html" class="md-nav__link">
+      <a href="https://onconova.github.io/fhir/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    FHIR Implementation Guide
+    FHIR IG
     
   </span>
   
@@ -5830,7 +5830,7 @@ entries, mutations, clinical centers, contributors, cohorts, and projects.</p>
 </span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60"></a>        <span class="n">primarySites</span><span class="o">=</span><span class="n">oncological_models</span><span class="o">.</span><span class="n">NeoplasticEntity</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">select_properties</span><span class="p">(</span>
 </span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61"></a>            <span class="s2">&quot;topography_group&quot;</span>
 </span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62"></a>        <span class="p">)</span>
-</span><span id="__span-0-63"><a id="__codelineno-0-63" name="__codelineno-0-63"></a>        <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">relationship</span><span class="o">=</span><span class="n">NeoplasticEntityRelationship</span><span class="o">.</span><span class="n">PRIMARY</span><span class="p">)</span>
+</span><span id="__span-0-63"><a id="__codelineno-0-63" name="__codelineno-0-63"></a>        <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">relationship</span><span class="o">=</span><span class="n">NeoplasticEntityRelationshipChoices</span><span class="o">.</span><span class="n">PRIMARY</span><span class="p">)</span>
 </span><span id="__span-0-64"><a id="__codelineno-0-64" name="__codelineno-0-64"></a>        <span class="o">.</span><span class="n">distinct</span><span class="p">(</span><span class="s2">&quot;topography_group&quot;</span><span class="p">)</span>
 </span><span id="__span-0-65"><a id="__codelineno-0-65" name="__codelineno-0-65"></a>        <span class="o">.</span><span class="n">count</span><span class="p">(),</span>
 </span><span id="__span-0-66"><a id="__codelineno-0-66" name="__codelineno-0-66"></a>        <span class="n">entries</span><span class="o">=</span><span class="nb">sum</span><span class="p">([</span><span class="n">model</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">oncological_models</span><span class="o">.</span><span class="n">MODELS</span><span class="p">]),</span>
@@ -5945,7 +5945,7 @@ entries, mutations, clinical centers, contributors, cohorts, and projects.</p>
 </span><span id="__span-0-98"><a id="__codelineno-0-98" name="__codelineno-0-98"></a>        <span class="n">oncological_models</span><span class="o">.</span><span class="n">NeoplasticEntity</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">select_properties</span><span class="p">(</span>
 </span><span id="__span-0-99"><a id="__codelineno-0-99" name="__codelineno-0-99"></a>            <span class="s2">&quot;topography_group&quot;</span>
 </span><span id="__span-0-100"><a id="__codelineno-0-100" name="__codelineno-0-100"></a>        <span class="p">)</span>
-</span><span id="__span-0-101"><a id="__codelineno-0-101" name="__codelineno-0-101"></a>        <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">relationship</span><span class="o">=</span><span class="n">NeoplasticEntityRelationship</span><span class="o">.</span><span class="n">PRIMARY</span><span class="p">)</span>
+</span><span id="__span-0-101"><a id="__codelineno-0-101" name="__codelineno-0-101"></a>        <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">relationship</span><span class="o">=</span><span class="n">NeoplasticEntityRelationshipChoices</span><span class="o">.</span><span class="n">PRIMARY</span><span class="p">)</span>
 </span><span id="__span-0-102"><a id="__codelineno-0-102" name="__codelineno-0-102"></a>        <span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s2">&quot;topography_group__code&quot;</span><span class="p">,</span> <span class="s2">&quot;topography_group__display&quot;</span><span class="p">)</span>
 </span><span id="__span-0-103"><a id="__codelineno-0-103" name="__codelineno-0-103"></a>        <span class="o">.</span><span class="n">distinct</span><span class="p">()</span>
 </span><span id="__span-0-104"><a id="__codelineno-0-104" name="__codelineno-0-104"></a>    <span class="p">)</span>
@@ -5955,7 +5955,7 @@ entries, mutations, clinical centers, contributors, cohorts, and projects.</p>
 </span><span id="__span-0-108"><a id="__codelineno-0-108" name="__codelineno-0-108"></a>        <span class="n">entity_cohort</span> <span class="o">=</span> <span class="n">oncological_models</span><span class="o">.</span><span class="n">PatientCase</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
 </span><span id="__span-0-109"><a id="__codelineno-0-109" name="__codelineno-0-109"></a>            <span class="n">Exists</span><span class="p">(</span>
 </span><span id="__span-0-110"><a id="__codelineno-0-110" name="__codelineno-0-110"></a>                <span class="n">oncological_models</span><span class="o">.</span><span class="n">NeoplasticEntity</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
-</span><span id="__span-0-111"><a id="__codelineno-0-111" name="__codelineno-0-111"></a>                    <span class="n">relationship</span><span class="o">=</span><span class="n">NeoplasticEntityRelationship</span><span class="o">.</span><span class="n">PRIMARY</span><span class="p">,</span>
+</span><span id="__span-0-111"><a id="__codelineno-0-111" name="__codelineno-0-111"></a>                    <span class="n">relationship</span><span class="o">=</span><span class="n">NeoplasticEntityRelationshipChoices</span><span class="o">.</span><span class="n">PRIMARY</span><span class="p">,</span>
 </span><span id="__span-0-112"><a id="__codelineno-0-112" name="__codelineno-0-112"></a>                    <span class="n">topography__code__contains</span><span class="o">=</span><span class="n">entity_code</span><span class="p">,</span>
 </span><span id="__span-0-113"><a id="__codelineno-0-113" name="__codelineno-0-113"></a>                    <span class="n">case_id</span><span class="o">=</span><span class="n">OuterRef</span><span class="p">(</span><span class="s2">&quot;pk&quot;</span><span class="p">),</span>
 </span><span id="__span-0-114"><a id="__codelineno-0-114" name="__codelineno-0-114"></a>                <span class="p">)</span>
@@ -5994,7 +5994,7 @@ entries, mutations, clinical centers, contributors, cohorts, and projects.</p>
 
     </div>
 
-</div><div class='document-dates-plugin-wrapper document-dates-bottom'><div class='document-dates-plugin'><span data-tippy-content='Created: 2025-10-15'><span class='material-icons' data-icon='doc_created'></span><time datetime='2025-10-15T08:24:27.685640' locale='en'>2025-10-15</time></span><span data-tippy-content='Last Update: 2025-10-15'><span class='material-icons' data-icon='doc_modified'></span><time datetime='2025-10-15T08:24:27.685640' locale='en'>2025-10-15</time></span><span data-tippy-content='Author: runner'><span class='material-icons' data-icon='doc_author'></span>runner</span></div></div>
+</div><div class='document-dates-plugin-wrapper document-dates-bottom'><div class='document-dates-plugin'><span data-tippy-content='Created: 2025-10-17'><span class='material-icons' data-icon='doc_created'></span><time datetime='2025-10-17T06:57:45.572737' locale='en'>2025-10-17</time></span><span data-tippy-content='Last Update: 2025-10-17'><span class='material-icons' data-icon='doc_modified'></span><time datetime='2025-10-17T06:57:45.572737' locale='en'>2025-10-17</time></span><span data-tippy-content='Author: runner'><span class='material-icons' data-icon='doc_author'></span>runner</span></div></div>
 
 
 
