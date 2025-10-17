@@ -66,17 +66,17 @@
     
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
-      <link rel="stylesheet" href="../assets/document_dates/tippy/tippy.css">
-    
-      <link rel="stylesheet" href="../assets/document_dates/tippy/backdrop.css">
-    
-      <link rel="stylesheet" href="../assets/document_dates/tippy/shift-away.css">
-    
       <link rel="stylesheet" href="../assets/document_dates/tippy/light.css">
     
       <link rel="stylesheet" href="../assets/document_dates/tippy/material.css">
     
+      <link rel="stylesheet" href="../assets/document_dates/tippy/shift-away.css">
+    
       <link rel="stylesheet" href="../assets/document_dates/tippy/scale.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/tippy/backdrop.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/tippy/tippy.css">
     
       <link rel="stylesheet" href="../assets/document_dates/core/core.css">
     
@@ -1310,6 +1310,30 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#120-2025-10-17" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.0 - 2025-10-17
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2.0 - 2025-10-17">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#110-2025-10-09" class="md-nav__link">
@@ -5288,6 +5312,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#120-2025-10-17" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.0 - 2025-10-17
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2.0 - 2025-10-17">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#110-2025-10-09" class="md-nav__link">
     <span class="md-ellipsis">
       1.1.0 - 2025-10-09
@@ -5348,6 +5396,16 @@
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
 <p>All notable changes to this project will be documented here.</p>
 <hr />
+<h2 id="120-2025-10-17">1.2.0 - 2025-10-17<a class="headerlink" href="#120-2025-10-17" title="Permanent link">&para;</a></h2>
+<h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Migrated the source code to https://github.com/onconova/onconova.</li>
+<li>The Onconova FHIR IG source code has been migrated to a separate repo (https://github.com/onconova/fhir) for better maintainability.</li>
+<li>Replace dynamically-generated schemas by static definitions (<a href="https://github.com/onconova/onconova/pull/148">#148</a>). This will ensure that current and future API versions can be correctly frozen and maintained.</li>
+<li>Refactor code to new organization multi-repo strcuture (<a href="https://github.com/onconova/onconova/pull/149">#149</a>)</li>
+</ul>
+<p><strong>Full Changelog</strong>: https://github.com/onconova/onconova/compare/1.0.0...1.2.0</p>
+<hr />
 <h2 id="110-2025-10-09">1.1.0 - 2025-10-09<a class="headerlink" href="#110-2025-10-09" title="Permanent link">&para;</a></h2>
 <h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h3>
 <ul>
@@ -5359,11 +5417,11 @@
 <li>Freeze <code>pydantic</code> and <code>django-ninja</code> dependencies of the server to avoid bugs caused by newer release combinations</li>
 <li>Refactor annotation check to use inspect.isclass in dataset.py to avoid error in server. </li>
 </ul>
-<p><strong>Full Changelog</strong>: https://github.com/onconova/onconova/compare/1.0.0...1.0.1</p>
+<p><strong>Full Changelog</strong>: https://github.com/onconova/onconova/compare/1.0.1...1.1.0</p>
 <hr />
 <h2 id="100-2025-09-03">1.0.0 - 2025-09-03<a class="headerlink" href="#100-2025-09-03" title="Permanent link">&para;</a></h2>
 <p>🎉 First release!</p>
-<div class='document-dates-plugin-wrapper document-dates-bottom'><div class='document-dates-plugin'><span data-tippy-content='Created: 2025-10-17'><span class='material-icons' data-icon='doc_created'></span><time datetime='2025-10-17T07:35:55.009164' locale='en'>2025-10-17</time></span><span data-tippy-content='Last Update: 2025-10-17'><span class='material-icons' data-icon='doc_modified'></span><time datetime='2025-10-17T07:35:55.009164' locale='en'>2025-10-17</time></span><span data-tippy-content='Author: runner'><span class='material-icons' data-icon='doc_author'></span>runner</span></div></div>
+<div class='document-dates-plugin-wrapper document-dates-bottom'><div class='document-dates-plugin'><span data-tippy-content='Created: 2025-10-17'><span class='material-icons' data-icon='doc_created'></span><time datetime='2025-10-17T08:03:18.495345' locale='en'>2025-10-17</time></span><span data-tippy-content='Last Update: 2025-10-17'><span class='material-icons' data-icon='doc_modified'></span><time datetime='2025-10-17T08:03:18.495345' locale='en'>2025-10-17</time></span><span data-tippy-content='Author: runner'><span class='material-icons' data-icon='doc_author'></span>runner</span></div></div>
 
 
 
