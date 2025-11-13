@@ -980,7 +980,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/core/admin/forms/user-form/user-form.component.ts:102</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="109" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/core/admin/forms/user-form/user-form.component.ts:109</a></div>
                         </td>
                     </tr>
 
@@ -1315,6 +1315,13 @@ export class UserFormComponent extends AbstractFormBase {
     // API Payload construction function
     readonly payload &#x3D; (): UserCreate &#x3D;&gt; { 
         this.form.get(&#x27;username&#x27;)?.enable(); 
+        if (this.initialData()?.isProvided) {
+            Object.keys(this.form.controls).forEach((controlName) &#x3D;&gt; {
+                if (controlName !&#x3D;&#x3D; &#x27;accessLevel&#x27;) {
+                    this.form.get(controlName)?.enable();
+                }
+            });
+        }
         const data &#x3D; this.form.value;   
         return {
             username: data.username!,
