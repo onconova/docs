@@ -177,12 +177,15 @@
             &lt;div class&#x3D;&quot;flex flex-column gap-3&quot;&gt;
                 @for (event of groupedEvents.events; track event.id) {
                     &lt;div (click)&#x3D;&quot;onEventClick.emit(event)&quot; class&#x3D;&quot;onconova-case-manager-panel-timeline-event-entry cursor-pointer&quot;&gt;
-                        @if (icon()) {
-                            &lt;lucide-angular class&#x3D;&quot;onconova-case-manager-panel-timeline-event-icon&quot; [img]&#x3D;&quot;icon()&quot;/&gt;
+                        &lt;div class&#x3D;&quot;onconova-case-manager-panel-timeline-event-icon&quot;&gt;&lt;/div&gt;
+                        @let component &#x3D; customEventComponent();
+                        @if (component) {
+                            &lt;ng-container [ngComponentOutlet]&#x3D;&quot;component&quot; [ngComponentOutletInputs]&#x3D;&quot;{ event: event }&quot; style&#x3D;&quot;width: 100%&quot;/&gt;
                         } @else {
-                            &lt;i class&#x3D;&quot;onconova-case-manager-panel-timeline-event-icon pi pi-box&quot;&gt;&lt;/i&gt;
+                            &lt;div class&#x3D;&quot;onconova-case-manager-panel-timeline-event-description&quot;&gt;
+                            {{ event.description }}
+                            &lt;/div&gt;
                         }
-                        {{ event.description }}
                     &lt;/div&gt;
                 }
             &lt;/div&gt;
@@ -216,6 +219,10 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#customEventComponent" >customEventComponent</a>
+                            </li>
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#events" >events</a>
@@ -287,7 +294,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/features/cases/case-manager/components/case-manager-panel/components/case-manager-panel-timeline.component.ts:64</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/features/cases/case-manager/components/case-manager-panel/components/case-manager-panel-timeline.component.ts:67</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -311,7 +318,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/features/cases/case-manager/components/case-manager-panel/components/case-manager-panel-timeline.component.ts:62</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/features/cases/case-manager/components/case-manager-panel/components/case-manager-panel-timeline.component.ts:65</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -325,6 +332,32 @@
     <h3 id="inputs">
         Properties
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="customEventComponent"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>customEventComponent</b></span>
+                        <a href="#customEventComponent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>input&lt;Type&lt;any&gt;&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/features/cases/case-manager/components/case-manager-panel/components/case-manager-panel-timeline.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -344,7 +377,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/features/cases/case-manager/components/case-manager-panel/components/case-manager-panel-timeline.component.ts:63</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/features/cases/case-manager/components/case-manager-panel/components/case-manager-panel-timeline.component.ts:66</a></div>
                         </td>
                     </tr>
 
@@ -391,7 +424,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/features/cases/case-manager/components/case-manager-panel/components/case-manager-panel-timeline.component.ts:65</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/features/cases/case-manager/components/case-manager-panel/components/case-manager-panel-timeline.component.ts:69</a></div>
                         </td>
                     </tr>
 
@@ -412,7 +445,7 @@
             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/features/cases/case-manager/components/case-manager-panel/components/case-manager-panel-timeline.component.ts:64</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/features/cases/case-manager/components/case-manager-panel/components/case-manager-panel-timeline.component.ts:67</a></div>
                         </td>
                     </tr>
 
@@ -439,7 +472,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/features/cases/case-manager/components/case-manager-panel/components/case-manager-panel-timeline.component.ts:60</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/features/cases/case-manager/components/case-manager-panel/components/case-manager-panel-timeline.component.ts:63</a></div>
                         </td>
                     </tr>
 
@@ -452,7 +485,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Output, Signal, computed, inject, input } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Output, Signal, Type, computed, inject, input } from &#x27;@angular/core&#x27;;
 import { EventEmitter } from &#x27;@angular/core&#x27;;
 import { CommonModule} from &#x27;@angular/common&#x27;;
 import { TimelineModule } from &#x27;primeng/timeline&#x27;;
@@ -490,12 +523,15 @@ export interface RadioChoice {
                     &lt;div class&#x3D;&quot;flex flex-column gap-3&quot;&gt;
                         @for (event of groupedEvents.events; track event.id) {
                             &lt;div (click)&#x3D;&quot;onEventClick.emit(event)&quot; class&#x3D;&quot;onconova-case-manager-panel-timeline-event-entry cursor-pointer&quot;&gt;
-                                @if (icon()) {
-                                    &lt;lucide-angular class&#x3D;&quot;onconova-case-manager-panel-timeline-event-icon&quot; [img]&#x3D;&quot;icon()&quot;/&gt;
+                                &lt;div class&#x3D;&quot;onconova-case-manager-panel-timeline-event-icon&quot;&gt;&lt;/div&gt;
+                                @let component &#x3D; customEventComponent();
+                                @if (component) {
+                                    &lt;ng-container [ngComponentOutlet]&#x3D;&quot;component&quot; [ngComponentOutletInputs]&#x3D;&quot;{ event: event }&quot; style&#x3D;&quot;width: 100%&quot;/&gt;
                                 } @else {
-                                    &lt;i class&#x3D;&quot;onconova-case-manager-panel-timeline-event-icon pi pi-box&quot;&gt;&lt;/i&gt;
+                                    &lt;div class&#x3D;&quot;onconova-case-manager-panel-timeline-event-description&quot;&gt;
+                                    {{ event.description }}
+                                    &lt;/div&gt;
                                 }
-                                {{ event.description }}
                             &lt;/div&gt;                        
                         }
                     &lt;/div&gt;
@@ -516,6 +552,7 @@ export class CaseManagerPanelTimelineComponent {
     @Output() public onEventClick &#x3D; new EventEmitter&lt;any&gt;();
     public events &#x3D; input.required&lt;any[]&gt;()
     public icon &#x3D; input&lt;LucideIconData&gt;()
+    public customEventComponent &#x3D; input&lt;Type&lt;any&gt;&gt;()
     public groupedEvents: Signal&lt;{timestamp: Date | Period, events: any[]}[]&gt; &#x3D; computed(
         () &#x3D;&gt; {
             let eventMap &#x3D; this.events().map((event) &#x3D;&gt; {
@@ -562,8 +599,8 @@ export class CaseManagerPanelTimelineComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p-timeline [value]="groupedEvents()" class="case-manager-panel-timeline">    <ng-template pTemplate="content" let-groupedEvents>        <div>            <div class="onconova-case-manager-panel-timeline-event-date mb-1">                <small>                    @if (typeCheck.isPeriod(groupedEvents.timestamp)) {                        {{ groupedEvents.timestamp.start | date }}                        -                        @if (groupedEvents.timestamp.end) {                            {{ groupedEvents.timestamp?.end | date }}                        } @else {                            Ongoing                        }                    } @else {                        {{ groupedEvents.timestamp | date }}                    }                </small>            </div>            <div class="flex flex-column gap-3">                @for (event of groupedEvents.events; track event.id) {                    <div (click)="onEventClick.emit(event)" class="onconova-case-manager-panel-timeline-event-entry cursor-pointer">                        @if (icon()) {                            <lucide-angular class="onconova-case-manager-panel-timeline-event-icon" [img]="icon()"/>                        } @else {                            <i class="onconova-case-manager-panel-timeline-event-icon pi pi-box"></i>                        }                        {{ event.description }}                    </div>                }            </div>        </div>    </ng-template></p-timeline></div>'
-    var COMPONENTS = [{'name': 'AbstractFormBase', 'selector': ''},{'name': 'AdverseEventFormComponent', 'selector': 'adverse-event-form'},{'name': 'AppComponent', 'selector': 'onconova-root'},{'name': 'AppFooterComponent', 'selector': 'onconova-footer'},{'name': 'AppLayoutComponent', 'selector': 'onconova-layout'},{'name': 'AppSidebarMenuComponent', 'selector': 'onconova-sidebar-menu'},{'name': 'AppTopBarComponent', 'selector': 'onconova-topbar'},{'name': 'AuthCallbackComponent', 'selector': 'app-auth-callback'},{'name': 'AuthLayoutComponent', 'selector': 'onconova-auth-layout'},{'name': 'BoxPlotComponent', 'selector': 'onconova-box-plot'},{'name': 'CancerIconComponent', 'selector': 'onconova-cancer-icon'},{'name': 'CaseImporterBundleViewerComponent', 'selector': 'onconova-case-importer-bundle-viewer'},{'name': 'CaseImporterComponent', 'selector': 'onconova-case-importer'},{'name': 'CaseManagerComponent', 'selector': 'onconova-case-manager'},{'name': 'CaseManagerDrawerComponent', 'selector': 'onconova-case-manager-drawer'},{'name': 'CaseManagerPanelComponent', 'selector': 'onconova-case-manager-panel'},{'name': 'CaseManagerPanelTimelineComponent', 'selector': 'onconova-case-manager-panel-timeline'},{'name': 'CaseSearchComponent', 'selector': ''},{'name': 'CaseSearchItemCardComponent', 'selector': 'onconova-case-search-item,[onconova-case-search-item]'},{'name': 'CodedConceptTreeComponent', 'selector': 'onconova-coded-concept-tree'},{'name': 'CohortBuilderComponent', 'selector': 'onconova-cohort-manager'},{'name': 'CohortContributorsComponent', 'selector': 'onconova-cohort-contributors'},{'name': 'CohortFormComponent', 'selector': 'cohort-form'},{'name': 'CohortGraphsComponent', 'selector': 'onconova-cohort-graphs'},{'name': 'CohortGraphsContextMenu', 'selector': 'onconova-cohort-graph-context-menu'},{'name': 'CohortQueryBuilderComponent', 'selector': 'onconova-cohort-query-builder'},{'name': 'CohortSearchComponent', 'selector': ''},{'name': 'CohortSearchItemComponent', 'selector': 'onconova-cohort-search-item, [onconova-cohort-search-item]'},{'name': 'CohortTraitPanel', 'selector': 'onconova-cohort-trait'},{'name': 'ComorbiditiesAssessmentFormComponent', 'selector': 'comorbidities-form'},{'name': 'ConceptSelectorComponent', 'selector': 'onconova-concept-selector'},{'name': 'ConsentNoticeModalComponent', 'selector': 'onconova-consent-modal'},{'name': 'DashboardComponent', 'selector': 'onconova-dashboard'},{'name': 'DataCompletionStatsComponent', 'selector': 'onconova-data-completion-stats'},{'name': 'DatasetComposerComponent', 'selector': 'onconova-dataset-composer'},{'name': 'DataSummaryComponent', 'selector': 'onconova-data-summary'},{'name': 'DataSummaryCounterComponent', 'selector': 'onconova-data-summary-counter'},{'name': 'DatePickerComponent', 'selector': 'onconova-datepicker'},{'name': 'DisclaimerBannerComponent', 'selector': 'onconova-disclaimer-banner'},{'name': 'DistributionGraphComponent', 'selector': 'onconova-distribution-graph'},{'name': 'DoughnutGraphComponent', 'selector': 'onconova-doughnut-graph'},{'name': 'DrawerDataPropertiesComponent', 'selector': 'onconova-drawer-properties'},{'name': 'ErrorComponent', 'selector': 'onconova-error'},{'name': 'ExportConfirmDialogComponent', 'selector': 'onconova-export-confirm-dialog'},{'name': 'FamilyHistoryFormComponent', 'selector': 'family-history-form'},{'name': 'FormControlErrorComponent', 'selector': 'onconova-form-control-error'},{'name': 'GenomicSignatureFormComponent', 'selector': 'genomic-signature-form'},{'name': 'GenomicVariantFormComponent', 'selector': 'genomic-variant-form'},{'name': 'IdenticonComponent', 'selector': 'onconova-identicon'},{'name': 'KapplerMeierCurveComponent', 'selector': 'onconova-kappler-meier-curve'},{'name': 'LifestyleFormComponent', 'selector': 'lifestyle-form'},{'name': 'LoginComponent', 'selector': 'onconova-login'},{'name': 'MeasureInputComponent', 'selector': 'onconova-measure-input'},{'name': 'ModalFormHeaderComponent', 'selector': 'onconova-modal-form-header'},{'name': 'MultiReferenceSelectComponent', 'selector': 'onconova-multi-reference-select'},{'name': 'NeoplasticEntityFormComponent', 'selector': 'neoplastic-entity-form'},{'name': 'NestedTableComponent', 'selector': 'onconova-nested-table'},{'name': 'OncoplotComponent', 'selector': 'onconova-oncoplot'},{'name': 'PasswordResetFormComponent', 'selector': 'onconova-password-reset-dialog'},{'name': 'PatientFormComponent', 'selector': 'patient-form'},{'name': 'PerformanceStatusFormComponent', 'selector': 'performance-status-form'},{'name': 'PopoverFilterButtonComponent', 'selector': 'onconova-popover-filter-button'},{'name': 'PrimaryEntitiesTableComponent', 'selector': 'onconova-primary-entities-table'},{'name': 'ProjectFormComponent', 'selector': 'project-form'},{'name': 'ProjectManagementComponent', 'selector': 'onconova-project-management'},{'name': 'ProjectSearchComponent', 'selector': 'onconova-project-search'},{'name': 'ProjectSearchItemComponent', 'selector': 'onconova-project-search-item, [onconova-project-search-item]'},{'name': 'ProviderSignupComponent', 'selector': 'app-signup'},{'name': 'RadioSelectComponent', 'selector': 'onconova-radio-select'},{'name': 'RadiotherapyFormComponent', 'selector': 'radiotherapy-form'},{'name': 'RandomPaperComponent', 'selector': 'onconova-random-paper'},{'name': 'RangeInputComponent', 'selector': 'onconova-range-input'},{'name': 'RiskAssessmentFormComponent', 'selector': 'risk-assessment-form'},{'name': 'SettingsDialogComponent', 'selector': 'onconova-settings-dialog'},{'name': 'StagingFormComponent', 'selector': 'staging-form'},{'name': 'SurgeryFormComponent', 'selector': 'surgery-form'},{'name': 'SystemicTherapyFormComponent', 'selector': 'systemic-therapy-form'},{'name': 'TreatmentResponseFormComponent', 'selector': 'treatment-response-form'},{'name': 'TumorBoardFormComponent', 'selector': 'tumor-board-form'},{'name': 'TumorMarkerFormComponent', 'selector': 'tumor-marker-form'},{'name': 'UserBadgeComponent', 'selector': 'onconova-user-badge'},{'name': 'UserDetailsComponent', 'selector': 'onconova-user-details'},{'name': 'UserFormComponent', 'selector': 'onconova-user-form'},{'name': 'UserSelectorComponent', 'selector': 'onconova-user-selector'},{'name': 'UsersManagementCompnent', 'selector': 'onconova-users-management'},{'name': 'VitalsFormComponent', 'selector': 'vitals-form'}];
+        var COMPONENT_TEMPLATE = '<div><p-timeline [value]="groupedEvents()" class="case-manager-panel-timeline">    <ng-template pTemplate="content" let-groupedEvents>        <div>            <div class="onconova-case-manager-panel-timeline-event-date mb-1">                <small>                    @if (typeCheck.isPeriod(groupedEvents.timestamp)) {                        {{ groupedEvents.timestamp.start | date }}                        -                        @if (groupedEvents.timestamp.end) {                            {{ groupedEvents.timestamp?.end | date }}                        } @else {                            Ongoing                        }                    } @else {                        {{ groupedEvents.timestamp | date }}                    }                </small>            </div>            <div class="flex flex-column gap-3">                @for (event of groupedEvents.events; track event.id) {                    <div (click)="onEventClick.emit(event)" class="onconova-case-manager-panel-timeline-event-entry cursor-pointer">                        <div class="onconova-case-manager-panel-timeline-event-icon"></div>                        @let component = customEventComponent();                        @if (component) {                            <ng-container [ngComponentOutlet]="component" [ngComponentOutletInputs]="{ event: event }" style="width: 100%"/>                        } @else {                            <div class="onconova-case-manager-panel-timeline-event-description">                            {{ event.description }}                            </div>                        }                    </div>                }            </div>        </div>    </ng-template></p-timeline></div>'
+    var COMPONENTS = [{'name': 'AbstractFormBase', 'selector': ''},{'name': 'AdverseEventFormComponent', 'selector': 'adverse-event-form'},{'name': 'AppComponent', 'selector': 'onconova-root'},{'name': 'AppFooterComponent', 'selector': 'onconova-footer'},{'name': 'AppLayoutComponent', 'selector': 'onconova-layout'},{'name': 'AppSidebarMenuComponent', 'selector': 'onconova-sidebar-menu'},{'name': 'AppTopBarComponent', 'selector': 'onconova-topbar'},{'name': 'AuthCallbackComponent', 'selector': 'app-auth-callback'},{'name': 'AuthLayoutComponent', 'selector': 'onconova-auth-layout'},{'name': 'BoxPlotComponent', 'selector': 'onconova-box-plot'},{'name': 'CancerIconComponent', 'selector': 'onconova-cancer-icon'},{'name': 'CaseImporterBundleViewerComponent', 'selector': 'onconova-case-importer-bundle-viewer'},{'name': 'CaseImporterComponent', 'selector': 'onconova-case-importer'},{'name': 'CaseManagerComponent', 'selector': 'onconova-case-manager'},{'name': 'CaseManagerDrawerComponent', 'selector': 'onconova-case-manager-drawer'},{'name': 'CaseManagerPanelComponent', 'selector': 'onconova-case-manager-panel'},{'name': 'CaseManagerPanelTimelineComponent', 'selector': 'onconova-case-manager-panel-timeline'},{'name': 'CaseSearchComponent', 'selector': ''},{'name': 'CaseSearchItemCardComponent', 'selector': 'onconova-case-search-item,[onconova-case-search-item]'},{'name': 'CodedConceptTreeComponent', 'selector': 'onconova-coded-concept-tree'},{'name': 'CohortBuilderComponent', 'selector': 'onconova-cohort-manager'},{'name': 'CohortContributorsComponent', 'selector': 'onconova-cohort-contributors'},{'name': 'CohortFormComponent', 'selector': 'cohort-form'},{'name': 'CohortGraphsComponent', 'selector': 'onconova-cohort-graphs'},{'name': 'CohortGraphsContextMenu', 'selector': 'onconova-cohort-graph-context-menu'},{'name': 'CohortQueryBuilderComponent', 'selector': 'onconova-cohort-query-builder'},{'name': 'CohortSearchComponent', 'selector': ''},{'name': 'CohortSearchItemComponent', 'selector': 'onconova-cohort-search-item, [onconova-cohort-search-item]'},{'name': 'CohortTraitPanel', 'selector': 'onconova-cohort-trait'},{'name': 'ComorbiditiesAssessmentFormComponent', 'selector': 'comorbidities-form'},{'name': 'ConceptSelectorComponent', 'selector': 'onconova-concept-selector'},{'name': 'ConsentNoticeModalComponent', 'selector': 'onconova-consent-modal'},{'name': 'DashboardComponent', 'selector': 'onconova-dashboard'},{'name': 'DataCompletionStatsComponent', 'selector': 'onconova-data-completion-stats'},{'name': 'DatasetComposerComponent', 'selector': 'onconova-dataset-composer'},{'name': 'DataSummaryComponent', 'selector': 'onconova-data-summary'},{'name': 'DataSummaryCounterComponent', 'selector': 'onconova-data-summary-counter'},{'name': 'DatePickerComponent', 'selector': 'onconova-datepicker'},{'name': 'DisclaimerBannerComponent', 'selector': 'onconova-disclaimer-banner'},{'name': 'DistributionGraphComponent', 'selector': 'onconova-distribution-graph'},{'name': 'DoughnutGraphComponent', 'selector': 'onconova-doughnut-graph'},{'name': 'DrawerDataPropertiesComponent', 'selector': 'onconova-drawer-properties'},{'name': 'ErrorComponent', 'selector': 'onconova-error'},{'name': 'ExportConfirmDialogComponent', 'selector': 'onconova-export-confirm-dialog'},{'name': 'FamilyHistoryFormComponent', 'selector': 'family-history-form'},{'name': 'FormControlErrorComponent', 'selector': 'onconova-form-control-error'},{'name': 'GenomicSignatureFormComponent', 'selector': 'genomic-signature-form'},{'name': 'GenomicVariantFormComponent', 'selector': 'genomic-variant-form'},{'name': 'IdenticonComponent', 'selector': 'onconova-identicon'},{'name': 'KapplerMeierCurveComponent', 'selector': 'onconova-kappler-meier-curve'},{'name': 'LifestyleFormComponent', 'selector': 'lifestyle-form'},{'name': 'LoginComponent', 'selector': 'onconova-login'},{'name': 'MeasureInputComponent', 'selector': 'onconova-measure-input'},{'name': 'ModalFormHeaderComponent', 'selector': 'onconova-modal-form-header'},{'name': 'MultilineEventComponent', 'selector': 'onconova-multiline-event'},{'name': 'MultiReferenceSelectComponent', 'selector': 'onconova-multi-reference-select'},{'name': 'NeoplasticEntityEventComponent', 'selector': 'onconova-neoplastic-entity-event'},{'name': 'NeoplasticEntityFormComponent', 'selector': 'neoplastic-entity-form'},{'name': 'NestedTableComponent', 'selector': 'onconova-nested-table'},{'name': 'OncoplotComponent', 'selector': 'onconova-oncoplot'},{'name': 'PasswordResetFormComponent', 'selector': 'onconova-password-reset-dialog'},{'name': 'PatientFormComponent', 'selector': 'patient-form'},{'name': 'PerformanceStatusFormComponent', 'selector': 'performance-status-form'},{'name': 'PopoverFilterButtonComponent', 'selector': 'onconova-popover-filter-button'},{'name': 'PrimaryEntitiesTableComponent', 'selector': 'onconova-primary-entities-table'},{'name': 'ProjectFormComponent', 'selector': 'project-form'},{'name': 'ProjectManagementComponent', 'selector': 'onconova-project-management'},{'name': 'ProjectSearchComponent', 'selector': 'onconova-project-search'},{'name': 'ProjectSearchItemComponent', 'selector': 'onconova-project-search-item, [onconova-project-search-item]'},{'name': 'ProviderSignupComponent', 'selector': 'app-signup'},{'name': 'RadioSelectComponent', 'selector': 'onconova-radio-select'},{'name': 'RadiotherapyFormComponent', 'selector': 'radiotherapy-form'},{'name': 'RandomPaperComponent', 'selector': 'onconova-random-paper'},{'name': 'RangeInputComponent', 'selector': 'onconova-range-input'},{'name': 'RiskAssessmentFormComponent', 'selector': 'risk-assessment-form'},{'name': 'SettingsDialogComponent', 'selector': 'onconova-settings-dialog'},{'name': 'StagingFormComponent', 'selector': 'staging-form'},{'name': 'SurgeryFormComponent', 'selector': 'surgery-form'},{'name': 'SystemicTherapyFormComponent', 'selector': 'systemic-therapy-form'},{'name': 'TherapyLineEventComponent', 'selector': 'onconova-therapy-line-event'},{'name': 'TreatmentResponseFormComponent', 'selector': 'treatment-response-form'},{'name': 'TumorBoardFormComponent', 'selector': 'tumor-board-form'},{'name': 'TumorMarkerEventComponent', 'selector': 'onconova-tumor-marker-event'},{'name': 'TumorMarkerFormComponent', 'selector': 'tumor-marker-form'},{'name': 'UserBadgeComponent', 'selector': 'onconova-user-badge'},{'name': 'UserDetailsComponent', 'selector': 'onconova-user-details'},{'name': 'UserFormComponent', 'selector': 'onconova-user-form'},{'name': 'UserSelectorComponent', 'selector': 'onconova-user-selector'},{'name': 'UsersManagementCompnent', 'selector': 'onconova-users-management'},{'name': 'VitalsFormComponent', 'selector': 'vitals-form'}];
     var DIRECTIVES = [{'name': 'DateMaskDirective', 'selector': '[dateMask]'}];
     var ACTUAL_COMPONENT = {'name': 'CaseManagerPanelTimelineComponent'};
 </script>

@@ -274,7 +274,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input,inject, Output, EventEmitter, input, computed } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, Type, inject, Output, EventEmitter, input, computed } from &#x27;@angular/core&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
 import { EMPTY, Observable, expand, first, map, reduce} from &#x27;rxjs&#x27;;
 import { rxResource } from &#x27;@angular/core/rxjs-interop&#x27;;
@@ -291,7 +291,7 @@ import { Skeleton } from &#x27;primeng/skeleton&#x27;;
 
 import { AuthService } from &#x27;src/app/core/auth/services/auth.service&#x27;;
 import { CaseManagerDrawerComponent } from &#x27;../case-manager-drawer/case-manager-drawer.component&#x27;;
-import { PatientCasesService, PatientCaseDataCategoryChoices } from &#x27;onconova-api-client&#x27;;
+import { PatientCasesService, PatientCaseDataCategoryChoices, User } from &#x27;onconova-api-client&#x27;;
 
 import { LucideAngularModule } from &#x27;lucide-angular&#x27;;
 import { LucideIconData } from &#x27;lucide-angular/icons/types&#x27;;
@@ -337,6 +337,7 @@ export class CaseManagerPanelComponent {
     readonly #confirmationService &#x3D; inject(ConfirmationService)
     readonly #dialogservice &#x3D; inject(DialogService);
 
+    public currentUser &#x3D; computed((): User &#x3D;&gt; this.#authService.user())
     @Input() formComponent!: any;
     readonly anonymized &#x3D; input&lt;boolean&gt;(true)
 
@@ -346,12 +347,19 @@ export class CaseManagerPanelComponent {
     public service &#x3D; input.required&lt;DataService&gt;();
     public title &#x3D; input&lt;string&gt;();
     public icon &#x3D; input.required&lt;LucideIconData&gt;();
+    public customEventComponent &#x3D; input&lt;Type&lt;any&gt;&gt;();
 
     protected dataCompletionStatus &#x3D; rxResource({
         request: () &#x3D;&gt; ({caseId: this.caseId(), category: this.category()}),
         loader: ({request}) &#x3D;&gt; this.#patienCaseService.getPatientCaseDataCompletionStatus(request),
     });
-    public currentUser &#x3D; computed(() &#x3D;&gt; this.#authService.user());
+    protected consentStatus &#x3D; rxResource({
+        request: () &#x3D;&gt; ({caseId: this.caseId()}),
+        loader: ({request}) &#x3D;&gt; this.#patienCaseService.getPatientCaseById(request).pipe(map(
+            response &#x3D;&gt; response.consentStatus
+        )),
+    });
+    public canExportData &#x3D; computed(() &#x3D;&gt; this.consentStatus.value() &#x3D;&#x3D;&#x3D; &#x27;valid&#x27; &amp;&amp; this.currentUser().canExportData )
     public isCompleted &#x3D; computed(() &#x3D;&gt; this.dataCompletionStatus.value()?.status);
     public data &#x3D; rxResource({
         request: () &#x3D;&gt; ({caseId: this.caseId(), anonymized: this.anonymized(), offset: 0, limit: 20}),

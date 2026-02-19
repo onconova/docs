@@ -201,7 +201,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="components/ModalFormHeaderComponent.html" data-type="entity-link" >ModalFormHeaderComponent</a>
                             </li>
                             <li class="link">
+                                <a href="components/MultilineEventComponent.html" data-type="entity-link" >MultilineEventComponent</a>
+                            </li>
+                            <li class="link">
                                 <a href="components/MultiReferenceSelectComponent.html" data-type="entity-link" >MultiReferenceSelectComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/NeoplasticEntityEventComponent.html" data-type="entity-link" >NeoplasticEntityEventComponent</a>
                             </li>
                             <li class="link">
                                 <a href="components/NeoplasticEntityFormComponent.html" data-type="entity-link" >NeoplasticEntityFormComponent</a>
@@ -270,10 +276,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="components/SystemicTherapyFormComponent.html" data-type="entity-link" >SystemicTherapyFormComponent</a>
                             </li>
                             <li class="link">
+                                <a href="components/TherapyLineEventComponent.html" data-type="entity-link" >TherapyLineEventComponent</a>
+                            </li>
+                            <li class="link">
                                 <a href="components/TreatmentResponseFormComponent.html" data-type="entity-link" >TreatmentResponseFormComponent</a>
                             </li>
                             <li class="link">
                                 <a href="components/TumorBoardFormComponent.html" data-type="entity-link" >TumorBoardFormComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/TumorMarkerEventComponent.html" data-type="entity-link" >TumorMarkerEventComponent</a>
                             </li>
                             <li class="link">
                                 <a href="components/TumorMarkerFormComponent.html" data-type="entity-link" >TumorMarkerFormComponent</a>
