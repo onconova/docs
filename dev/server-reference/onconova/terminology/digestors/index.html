@@ -7329,6 +7329,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#onconova.terminology.digestors.ICDO3MorphologyDigestor.digest" class="md-nav__link">
+    <span class="md-ellipsis">
+      digest
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -8544,6 +8553,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#onconova.terminology.digestors.ICDO3MorphologyDigestor.digest" class="md-nav__link">
+    <span class="md-ellipsis">
+      digest
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -9426,11 +9444,11 @@
 
                   <details class="quote">
                     <summary>Source code in <code>onconova/terminology/digestors.py</code></summary>
-                    <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-756">756</a></span>
-<span class="normal"><a href="#__codelineno-0-757">757</a></span>
-<span class="normal"><a href="#__codelineno-0-758">758</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-756"><a id="__codelineno-0-756" name="__codelineno-0-756"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-</span><span id="__span-0-757"><a id="__codelineno-0-757" name="__codelineno-0-757"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">verbose</span><span class="p">)</span>
-</span><span id="__span-0-758"><a id="__codelineno-0-758" name="__codelineno-0-758"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">exons</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+                    <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-806">806</a></span>
+<span class="normal"><a href="#__codelineno-0-807">807</a></span>
+<span class="normal"><a href="#__codelineno-0-808">808</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-806"><a id="__codelineno-0-806" name="__codelineno-0-806"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+</span><span id="__span-0-807"><a id="__codelineno-0-807" name="__codelineno-0-807"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">verbose</span><span class="p">)</span>
+</span><span id="__span-0-808"><a id="__codelineno-0-808" name="__codelineno-0-808"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">exons</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
                   </details>
 
@@ -9796,65 +9814,65 @@ exons dictionary.</p>
 
             <details class="quote">
               <summary>Source code in <code>onconova/terminology/digestors.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-760">760</a></span>
-<span class="normal"><a href="#__codelineno-0-761">761</a></span>
-<span class="normal"><a href="#__codelineno-0-762">762</a></span>
-<span class="normal"><a href="#__codelineno-0-763">763</a></span>
-<span class="normal"><a href="#__codelineno-0-764">764</a></span>
-<span class="normal"><a href="#__codelineno-0-765">765</a></span>
-<span class="normal"><a href="#__codelineno-0-766">766</a></span>
-<span class="normal"><a href="#__codelineno-0-767">767</a></span>
-<span class="normal"><a href="#__codelineno-0-768">768</a></span>
-<span class="normal"><a href="#__codelineno-0-769">769</a></span>
-<span class="normal"><a href="#__codelineno-0-770">770</a></span>
-<span class="normal"><a href="#__codelineno-0-771">771</a></span>
-<span class="normal"><a href="#__codelineno-0-772">772</a></span>
-<span class="normal"><a href="#__codelineno-0-773">773</a></span>
-<span class="normal"><a href="#__codelineno-0-774">774</a></span>
-<span class="normal"><a href="#__codelineno-0-775">775</a></span>
-<span class="normal"><a href="#__codelineno-0-776">776</a></span>
-<span class="normal"><a href="#__codelineno-0-777">777</a></span>
-<span class="normal"><a href="#__codelineno-0-778">778</a></span>
-<span class="normal"><a href="#__codelineno-0-779">779</a></span>
-<span class="normal"><a href="#__codelineno-0-780">780</a></span>
-<span class="normal"><a href="#__codelineno-0-781">781</a></span>
-<span class="normal"><a href="#__codelineno-0-782">782</a></span>
-<span class="normal"><a href="#__codelineno-0-783">783</a></span>
-<span class="normal"><a href="#__codelineno-0-784">784</a></span>
-<span class="normal"><a href="#__codelineno-0-785">785</a></span>
-<span class="normal"><a href="#__codelineno-0-786">786</a></span>
-<span class="normal"><a href="#__codelineno-0-787">787</a></span>
-<span class="normal"><a href="#__codelineno-0-788">788</a></span>
-<span class="normal"><a href="#__codelineno-0-789">789</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-760"><a id="__codelineno-0-760" name="__codelineno-0-760"></a><span class="k">def</span><span class="w"> </span><span class="nf">digest</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-0-761"><a id="__codelineno-0-761" name="__codelineno-0-761"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="__span-0-762"><a id="__codelineno-0-762" name="__codelineno-0-762"></a><span class="sd">    Adjusts the cDNA positions of exons for each gene by normalizing them to the start of the coding DNA region.</span>
-</span><span id="__span-0-763"><a id="__codelineno-0-763" name="__codelineno-0-763"></a>
-</span><span id="__span-0-764"><a id="__codelineno-0-764" name="__codelineno-0-764"></a><span class="sd">    This method iterates through all genes and their associated exons, recalculating the `coding_dna_start` and</span>
-</span><span id="__span-0-765"><a id="__codelineno-0-765" name="__codelineno-0-765"></a><span class="sd">    `coding_dna_end` for each exon so that positions are relative to the first coding DNA position in the gene.</span>
-</span><span id="__span-0-766"><a id="__codelineno-0-766" name="__codelineno-0-766"></a><span class="sd">    If an exon does not have a `coding_dna_start`, it is skipped for normalization. The method returns the updated</span>
-</span><span id="__span-0-767"><a id="__codelineno-0-767" name="__codelineno-0-767"></a><span class="sd">    exons dictionary.</span>
-</span><span id="__span-0-768"><a id="__codelineno-0-768" name="__codelineno-0-768"></a>
-</span><span id="__span-0-769"><a id="__codelineno-0-769" name="__codelineno-0-769"></a><span class="sd">    Returns:</span>
-</span><span id="__span-0-770"><a id="__codelineno-0-770" name="__codelineno-0-770"></a><span class="sd">        (dict): A dictionary mapping gene names to lists of exons with updated cDNA positions.</span>
-</span><span id="__span-0-771"><a id="__codelineno-0-771" name="__codelineno-0-771"></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="__span-0-772"><a id="__codelineno-0-772" name="__codelineno-0-772"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
-</span><span id="__span-0-773"><a id="__codelineno-0-773" name="__codelineno-0-773"></a>    <span class="k">for</span> <span class="n">gene</span><span class="p">,</span> <span class="n">exons</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">exons</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-</span><span id="__span-0-774"><a id="__codelineno-0-774" name="__codelineno-0-774"></a>        <span class="c1"># Adjust the the cDNA position from the position in the gene reference sequence to position in the cDNA</span>
-</span><span id="__span-0-775"><a id="__codelineno-0-775" name="__codelineno-0-775"></a>        <span class="n">gene_coding_dna_region_start</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span>
-</span><span id="__span-0-776"><a id="__codelineno-0-776" name="__codelineno-0-776"></a>            <span class="p">[</span><span class="n">exon</span><span class="o">.</span><span class="n">coding_dna_start</span> <span class="k">for</span> <span class="n">exon</span> <span class="ow">in</span> <span class="n">exons</span> <span class="k">if</span> <span class="n">exon</span><span class="o">.</span><span class="n">coding_dna_start</span><span class="p">]</span>
-</span><span id="__span-0-777"><a id="__codelineno-0-777" name="__codelineno-0-777"></a>            <span class="ow">or</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</span><span id="__span-0-778"><a id="__codelineno-0-778" name="__codelineno-0-778"></a>        <span class="p">)</span>
-</span><span id="__span-0-779"><a id="__codelineno-0-779" name="__codelineno-0-779"></a>        <span class="k">if</span> <span class="n">gene_coding_dna_region_start</span><span class="p">:</span>
-</span><span id="__span-0-780"><a id="__codelineno-0-780" name="__codelineno-0-780"></a>            <span class="k">for</span> <span class="n">exon</span> <span class="ow">in</span> <span class="n">exons</span><span class="p">:</span>
-</span><span id="__span-0-781"><a id="__codelineno-0-781" name="__codelineno-0-781"></a>                <span class="k">if</span> <span class="n">exon</span><span class="o">.</span><span class="n">coding_dna_start</span><span class="p">:</span>
-</span><span id="__span-0-782"><a id="__codelineno-0-782" name="__codelineno-0-782"></a>                    <span class="n">exon</span><span class="o">.</span><span class="n">coding_dna_start</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="__span-0-783"><a id="__codelineno-0-783" name="__codelineno-0-783"></a>                        <span class="n">exon</span><span class="o">.</span><span class="n">coding_dna_start</span> <span class="o">-</span> <span class="n">gene_coding_dna_region_start</span> <span class="o">+</span> <span class="mi">1</span>
-</span><span id="__span-0-784"><a id="__codelineno-0-784" name="__codelineno-0-784"></a>                    <span class="p">)</span>
-</span><span id="__span-0-785"><a id="__codelineno-0-785" name="__codelineno-0-785"></a>                <span class="k">if</span> <span class="n">exon</span><span class="o">.</span><span class="n">coding_dna_end</span><span class="p">:</span>
-</span><span id="__span-0-786"><a id="__codelineno-0-786" name="__codelineno-0-786"></a>                    <span class="n">exon</span><span class="o">.</span><span class="n">coding_dna_end</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="__span-0-787"><a id="__codelineno-0-787" name="__codelineno-0-787"></a>                        <span class="n">exon</span><span class="o">.</span><span class="n">coding_dna_end</span> <span class="o">-</span> <span class="n">gene_coding_dna_region_start</span> <span class="o">+</span> <span class="mi">1</span>
-</span><span id="__span-0-788"><a id="__codelineno-0-788" name="__codelineno-0-788"></a>                    <span class="p">)</span>
-</span><span id="__span-0-789"><a id="__codelineno-0-789" name="__codelineno-0-789"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">exons</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-810">810</a></span>
+<span class="normal"><a href="#__codelineno-0-811">811</a></span>
+<span class="normal"><a href="#__codelineno-0-812">812</a></span>
+<span class="normal"><a href="#__codelineno-0-813">813</a></span>
+<span class="normal"><a href="#__codelineno-0-814">814</a></span>
+<span class="normal"><a href="#__codelineno-0-815">815</a></span>
+<span class="normal"><a href="#__codelineno-0-816">816</a></span>
+<span class="normal"><a href="#__codelineno-0-817">817</a></span>
+<span class="normal"><a href="#__codelineno-0-818">818</a></span>
+<span class="normal"><a href="#__codelineno-0-819">819</a></span>
+<span class="normal"><a href="#__codelineno-0-820">820</a></span>
+<span class="normal"><a href="#__codelineno-0-821">821</a></span>
+<span class="normal"><a href="#__codelineno-0-822">822</a></span>
+<span class="normal"><a href="#__codelineno-0-823">823</a></span>
+<span class="normal"><a href="#__codelineno-0-824">824</a></span>
+<span class="normal"><a href="#__codelineno-0-825">825</a></span>
+<span class="normal"><a href="#__codelineno-0-826">826</a></span>
+<span class="normal"><a href="#__codelineno-0-827">827</a></span>
+<span class="normal"><a href="#__codelineno-0-828">828</a></span>
+<span class="normal"><a href="#__codelineno-0-829">829</a></span>
+<span class="normal"><a href="#__codelineno-0-830">830</a></span>
+<span class="normal"><a href="#__codelineno-0-831">831</a></span>
+<span class="normal"><a href="#__codelineno-0-832">832</a></span>
+<span class="normal"><a href="#__codelineno-0-833">833</a></span>
+<span class="normal"><a href="#__codelineno-0-834">834</a></span>
+<span class="normal"><a href="#__codelineno-0-835">835</a></span>
+<span class="normal"><a href="#__codelineno-0-836">836</a></span>
+<span class="normal"><a href="#__codelineno-0-837">837</a></span>
+<span class="normal"><a href="#__codelineno-0-838">838</a></span>
+<span class="normal"><a href="#__codelineno-0-839">839</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-810"><a id="__codelineno-0-810" name="__codelineno-0-810"></a><span class="k">def</span><span class="w"> </span><span class="nf">digest</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-0-811"><a id="__codelineno-0-811" name="__codelineno-0-811"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-0-812"><a id="__codelineno-0-812" name="__codelineno-0-812"></a><span class="sd">    Adjusts the cDNA positions of exons for each gene by normalizing them to the start of the coding DNA region.</span>
+</span><span id="__span-0-813"><a id="__codelineno-0-813" name="__codelineno-0-813"></a>
+</span><span id="__span-0-814"><a id="__codelineno-0-814" name="__codelineno-0-814"></a><span class="sd">    This method iterates through all genes and their associated exons, recalculating the `coding_dna_start` and</span>
+</span><span id="__span-0-815"><a id="__codelineno-0-815" name="__codelineno-0-815"></a><span class="sd">    `coding_dna_end` for each exon so that positions are relative to the first coding DNA position in the gene.</span>
+</span><span id="__span-0-816"><a id="__codelineno-0-816" name="__codelineno-0-816"></a><span class="sd">    If an exon does not have a `coding_dna_start`, it is skipped for normalization. The method returns the updated</span>
+</span><span id="__span-0-817"><a id="__codelineno-0-817" name="__codelineno-0-817"></a><span class="sd">    exons dictionary.</span>
+</span><span id="__span-0-818"><a id="__codelineno-0-818" name="__codelineno-0-818"></a>
+</span><span id="__span-0-819"><a id="__codelineno-0-819" name="__codelineno-0-819"></a><span class="sd">    Returns:</span>
+</span><span id="__span-0-820"><a id="__codelineno-0-820" name="__codelineno-0-820"></a><span class="sd">        (dict): A dictionary mapping gene names to lists of exons with updated cDNA positions.</span>
+</span><span id="__span-0-821"><a id="__codelineno-0-821" name="__codelineno-0-821"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-0-822"><a id="__codelineno-0-822" name="__codelineno-0-822"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+</span><span id="__span-0-823"><a id="__codelineno-0-823" name="__codelineno-0-823"></a>    <span class="k">for</span> <span class="n">gene</span><span class="p">,</span> <span class="n">exons</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">exons</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span><span id="__span-0-824"><a id="__codelineno-0-824" name="__codelineno-0-824"></a>        <span class="c1"># Adjust the the cDNA position from the position in the gene reference sequence to position in the cDNA</span>
+</span><span id="__span-0-825"><a id="__codelineno-0-825" name="__codelineno-0-825"></a>        <span class="n">gene_coding_dna_region_start</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span>
+</span><span id="__span-0-826"><a id="__codelineno-0-826" name="__codelineno-0-826"></a>            <span class="p">[</span><span class="n">exon</span><span class="o">.</span><span class="n">coding_dna_start</span> <span class="k">for</span> <span class="n">exon</span> <span class="ow">in</span> <span class="n">exons</span> <span class="k">if</span> <span class="n">exon</span><span class="o">.</span><span class="n">coding_dna_start</span><span class="p">]</span>
+</span><span id="__span-0-827"><a id="__codelineno-0-827" name="__codelineno-0-827"></a>            <span class="ow">or</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="__span-0-828"><a id="__codelineno-0-828" name="__codelineno-0-828"></a>        <span class="p">)</span>
+</span><span id="__span-0-829"><a id="__codelineno-0-829" name="__codelineno-0-829"></a>        <span class="k">if</span> <span class="n">gene_coding_dna_region_start</span><span class="p">:</span>
+</span><span id="__span-0-830"><a id="__codelineno-0-830" name="__codelineno-0-830"></a>            <span class="k">for</span> <span class="n">exon</span> <span class="ow">in</span> <span class="n">exons</span><span class="p">:</span>
+</span><span id="__span-0-831"><a id="__codelineno-0-831" name="__codelineno-0-831"></a>                <span class="k">if</span> <span class="n">exon</span><span class="o">.</span><span class="n">coding_dna_start</span><span class="p">:</span>
+</span><span id="__span-0-832"><a id="__codelineno-0-832" name="__codelineno-0-832"></a>                    <span class="n">exon</span><span class="o">.</span><span class="n">coding_dna_start</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="__span-0-833"><a id="__codelineno-0-833" name="__codelineno-0-833"></a>                        <span class="n">exon</span><span class="o">.</span><span class="n">coding_dna_start</span> <span class="o">-</span> <span class="n">gene_coding_dna_region_start</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span id="__span-0-834"><a id="__codelineno-0-834" name="__codelineno-0-834"></a>                    <span class="p">)</span>
+</span><span id="__span-0-835"><a id="__codelineno-0-835" name="__codelineno-0-835"></a>                <span class="k">if</span> <span class="n">exon</span><span class="o">.</span><span class="n">coding_dna_end</span><span class="p">:</span>
+</span><span id="__span-0-836"><a id="__codelineno-0-836" name="__codelineno-0-836"></a>                    <span class="n">exon</span><span class="o">.</span><span class="n">coding_dna_end</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="__span-0-837"><a id="__codelineno-0-837" name="__codelineno-0-837"></a>                        <span class="n">exon</span><span class="o">.</span><span class="n">coding_dna_end</span> <span class="o">-</span> <span class="n">gene_coding_dna_region_start</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span id="__span-0-838"><a id="__codelineno-0-838" name="__codelineno-0-838"></a>                    <span class="p">)</span>
+</span><span id="__span-0-839"><a id="__codelineno-0-839" name="__codelineno-0-839"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">exons</span>
 </span></code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -11311,6 +11329,41 @@ exons dictionary.</p>
 
 
 
+<div class="doc doc-object doc-function">
+
+
+<h3 id="onconova.terminology.digestors.ICDO3MorphologyDigestor.digest" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">digest</span><span class="p">()</span></code>
+
+<a href="#onconova.terminology.digestors.ICDO3MorphologyDigestor.digest" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Processes and updates concept relationships and display names.</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>onconova/terminology/digestors.py</code></summary>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-567">567</a></span>
+<span class="normal"><a href="#__codelineno-0-568">568</a></span>
+<span class="normal"><a href="#__codelineno-0-569">569</a></span>
+<span class="normal"><a href="#__codelineno-0-570">570</a></span>
+<span class="normal"><a href="#__codelineno-0-571">571</a></span>
+<span class="normal"><a href="#__codelineno-0-572">572</a></span>
+<span class="normal"><a href="#__codelineno-0-573">573</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-567"><a id="__codelineno-0-567" name="__codelineno-0-567"></a><span class="k">def</span><span class="w"> </span><span class="nf">digest</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-0-568"><a id="__codelineno-0-568" name="__codelineno-0-568"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-0-569"><a id="__codelineno-0-569" name="__codelineno-0-569"></a><span class="sd">    Processes and updates concept relationships and display names.</span>
+</span><span id="__span-0-570"><a id="__codelineno-0-570" name="__codelineno-0-570"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-0-571"><a id="__codelineno-0-571" name="__codelineno-0-571"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+</span><span id="__span-0-572"><a id="__codelineno-0-572" name="__codelineno-0-572"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_digest_matrix</span><span class="p">()</span>
+</span><span id="__span-0-573"><a id="__codelineno-0-573" name="__codelineno-0-573"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">concepts</span>
+</span></code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
 
 
   </div>
@@ -12581,35 +12634,35 @@ and populates <code>self.concepts</code> with the digested concepts.</p>
 
             <details class="quote">
               <summary>Source code in <code>onconova/terminology/digestors.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-946">946</a></span>
-<span class="normal"><a href="#__codelineno-0-947">947</a></span>
-<span class="normal"><a href="#__codelineno-0-948">948</a></span>
-<span class="normal"><a href="#__codelineno-0-949">949</a></span>
-<span class="normal"><a href="#__codelineno-0-950">950</a></span>
-<span class="normal"><a href="#__codelineno-0-951">951</a></span>
-<span class="normal"><a href="#__codelineno-0-952">952</a></span>
-<span class="normal"><a href="#__codelineno-0-953">953</a></span>
-<span class="normal"><a href="#__codelineno-0-954">954</a></span>
-<span class="normal"><a href="#__codelineno-0-955">955</a></span>
-<span class="normal"><a href="#__codelineno-0-956">956</a></span>
-<span class="normal"><a href="#__codelineno-0-957">957</a></span>
-<span class="normal"><a href="#__codelineno-0-958">958</a></span>
-<span class="normal"><a href="#__codelineno-0-959">959</a></span>
-<span class="normal"><a href="#__codelineno-0-960">960</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-946"><a id="__codelineno-0-946" name="__codelineno-0-946"></a><span class="k">def</span><span class="w"> </span><span class="nf">digest</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-0-947"><a id="__codelineno-0-947" name="__codelineno-0-947"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="__span-0-948"><a id="__codelineno-0-948" name="__codelineno-0-948"></a><span class="sd">    Parses the OncoTree JSON file specified by `self.file_location`, recursively processes its branches,</span>
-</span><span id="__span-0-949"><a id="__codelineno-0-949" name="__codelineno-0-949"></a><span class="sd">    and populates `self.concepts` with the digested concepts.</span>
-</span><span id="__span-0-950"><a id="__codelineno-0-950" name="__codelineno-0-950"></a>
-</span><span id="__span-0-951"><a id="__codelineno-0-951" name="__codelineno-0-951"></a><span class="sd">    Returns:</span>
-</span><span id="__span-0-952"><a id="__codelineno-0-952" name="__codelineno-0-952"></a><span class="sd">        (dict): A dictionary containing the processed concepts from the OncoTree.</span>
-</span><span id="__span-0-953"><a id="__codelineno-0-953" name="__codelineno-0-953"></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="__span-0-954"><a id="__codelineno-0-954" name="__codelineno-0-954"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">concepts</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="__span-0-955"><a id="__codelineno-0-955" name="__codelineno-0-955"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_location</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-</span><span id="__span-0-956"><a id="__codelineno-0-956" name="__codelineno-0-956"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">oncotree</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-</span><span id="__span-0-957"><a id="__codelineno-0-957" name="__codelineno-0-957"></a>    <span class="c1"># And recursively add all its children</span>
-</span><span id="__span-0-958"><a id="__codelineno-0-958" name="__codelineno-0-958"></a>    <span class="k">for</span> <span class="n">branch</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">oncotree</span><span class="p">[</span><span class="s2">&quot;TISSUE&quot;</span><span class="p">][</span><span class="s2">&quot;children&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-</span><span id="__span-0-959"><a id="__codelineno-0-959" name="__codelineno-0-959"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_digest_branch</span><span class="p">(</span><span class="n">branch</span><span class="p">)</span>
-</span><span id="__span-0-960"><a id="__codelineno-0-960" name="__codelineno-0-960"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">concepts</span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-996"> 996</a></span>
+<span class="normal"><a href="#__codelineno-0-997"> 997</a></span>
+<span class="normal"><a href="#__codelineno-0-998"> 998</a></span>
+<span class="normal"><a href="#__codelineno-0-999"> 999</a></span>
+<span class="normal"><a href="#__codelineno-0-1000">1000</a></span>
+<span class="normal"><a href="#__codelineno-0-1001">1001</a></span>
+<span class="normal"><a href="#__codelineno-0-1002">1002</a></span>
+<span class="normal"><a href="#__codelineno-0-1003">1003</a></span>
+<span class="normal"><a href="#__codelineno-0-1004">1004</a></span>
+<span class="normal"><a href="#__codelineno-0-1005">1005</a></span>
+<span class="normal"><a href="#__codelineno-0-1006">1006</a></span>
+<span class="normal"><a href="#__codelineno-0-1007">1007</a></span>
+<span class="normal"><a href="#__codelineno-0-1008">1008</a></span>
+<span class="normal"><a href="#__codelineno-0-1009">1009</a></span>
+<span class="normal"><a href="#__codelineno-0-1010">1010</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-996"><a id="__codelineno-0-996" name="__codelineno-0-996"></a><span class="k">def</span><span class="w"> </span><span class="nf">digest</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-0-997"><a id="__codelineno-0-997" name="__codelineno-0-997"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-0-998"><a id="__codelineno-0-998" name="__codelineno-0-998"></a><span class="sd">    Parses the OncoTree JSON file specified by `self.file_location`, recursively processes its branches,</span>
+</span><span id="__span-0-999"><a id="__codelineno-0-999" name="__codelineno-0-999"></a><span class="sd">    and populates `self.concepts` with the digested concepts.</span>
+</span><span id="__span-0-1000"><a id="__codelineno-0-1000" name="__codelineno-0-1000"></a>
+</span><span id="__span-0-1001"><a id="__codelineno-0-1001" name="__codelineno-0-1001"></a><span class="sd">    Returns:</span>
+</span><span id="__span-0-1002"><a id="__codelineno-0-1002" name="__codelineno-0-1002"></a><span class="sd">        (dict): A dictionary containing the processed concepts from the OncoTree.</span>
+</span><span id="__span-0-1003"><a id="__codelineno-0-1003" name="__codelineno-0-1003"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-0-1004"><a id="__codelineno-0-1004" name="__codelineno-0-1004"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">concepts</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-0-1005"><a id="__codelineno-0-1005" name="__codelineno-0-1005"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_location</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span><span id="__span-0-1006"><a id="__codelineno-0-1006" name="__codelineno-0-1006"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">oncotree</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</span><span id="__span-0-1007"><a id="__codelineno-0-1007" name="__codelineno-0-1007"></a>    <span class="c1"># And recursively add all its children</span>
+</span><span id="__span-0-1008"><a id="__codelineno-0-1008" name="__codelineno-0-1008"></a>    <span class="k">for</span> <span class="n">branch</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">oncotree</span><span class="p">[</span><span class="s2">&quot;TISSUE&quot;</span><span class="p">][</span><span class="s2">&quot;children&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+</span><span id="__span-0-1009"><a id="__codelineno-0-1009" name="__codelineno-0-1009"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_digest_branch</span><span class="p">(</span><span class="n">branch</span><span class="p">)</span>
+</span><span id="__span-0-1010"><a id="__codelineno-0-1010" name="__codelineno-0-1010"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">concepts</span>
 </span></code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -13987,7 +14040,7 @@ and CodedConcept objects as values.</p>
 
     </div>
 
-</div><div class='document-dates-plugin-wrapper document-dates-bottom'><div class='document-dates-plugin'><span data-tippy-content='Created: 2026-02-19'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-02-19T14:36:40.969610' locale='en'>2026-02-19</time></span><span data-tippy-content='Last Update: 2026-02-19'><span class='material-icons' data-icon='doc_modified'></span><time datetime='2026-02-19T14:36:40.969610' locale='en'>2026-02-19</time></span><span data-tippy-content='Author: runner'><span class='material-icons' data-icon='doc_author'></span>runner</span></div></div>
+</div><div class='document-dates-plugin-wrapper document-dates-bottom'><div class='document-dates-plugin'><span data-tippy-content='Created: 2026-03-25'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-25T13:33:19.882500' locale='en'>2026-03-25</time></span><span data-tippy-content='Last Update: 2026-03-25'><span class='material-icons' data-icon='doc_modified'></span><time datetime='2026-03-25T13:33:19.882500' locale='en'>2026-03-25</time></span><span data-tippy-content='Author: runner'><span class='material-icons' data-icon='doc_author'></span>runner</span></div></div>
 
 
 
