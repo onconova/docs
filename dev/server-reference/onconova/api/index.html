@@ -1418,6 +1418,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#onconova.api.database_exception_handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      database_exception_handler
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#onconova.api.terminology_exception_handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      terminology_exception_handler
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -7394,6 +7412,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#onconova.api.database_exception_handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      database_exception_handler
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#onconova.api.terminology_exception_handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      terminology_exception_handler
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -7473,13 +7509,81 @@ and clinical research data management.</p>
 
 
 
+<div class="doc doc-object doc-function">
+
+
+<h2 id="onconova.api.database_exception_handler" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <code class="highlight language-python"><span class="n">database_exception_handler</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">exc</span><span class="p">)</span></code>
+
+<a href="#onconova.api.database_exception_handler" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents ">
+
+
+            <details class="quote">
+              <summary>Source code in <code>onconova/api.py</code></summary>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-157">157</a></span>
+<span class="normal"><a href="#__codelineno-0-158">158</a></span>
+<span class="normal"><a href="#__codelineno-0-159">159</a></span>
+<span class="normal"><a href="#__codelineno-0-160">160</a></span>
+<span class="normal"><a href="#__codelineno-0-161">161</a></span>
+<span class="normal"><a href="#__codelineno-0-162">162</a></span>
+<span class="normal"><a href="#__codelineno-0-163">163</a></span>
+<span class="normal"><a href="#__codelineno-0-164">164</a></span>
+<span class="normal"><a href="#__codelineno-0-165">165</a></span>
+<span class="normal"><a href="#__codelineno-0-166">166</a></span>
+<span class="normal"><a href="#__codelineno-0-167">167</a></span>
+<span class="normal"><a href="#__codelineno-0-168">168</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-157"><a id="__codelineno-0-157" name="__codelineno-0-157"></a><span class="nd">@api</span><span class="o">.</span><span class="n">exception_handler</span><span class="p">(</span><span class="n">IntegrityError</span><span class="p">)</span>
+</span><span id="__span-0-158"><a id="__codelineno-0-158" name="__codelineno-0-158"></a><span class="k">def</span><span class="w"> </span><span class="nf">database_exception_handler</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">exc</span><span class="p">):</span>
+</span><span id="__span-0-159"><a id="__codelineno-0-159" name="__codelineno-0-159"></a>    <span class="k">return</span> <span class="n">api</span><span class="o">.</span><span class="n">create_response</span><span class="p">(</span>
+</span><span id="__span-0-160"><a id="__codelineno-0-160" name="__codelineno-0-160"></a>        <span class="n">request</span><span class="p">,</span>
+</span><span id="__span-0-161"><a id="__codelineno-0-161" name="__codelineno-0-161"></a>        <span class="p">{</span>
+</span><span id="__span-0-162"><a id="__codelineno-0-162" name="__codelineno-0-162"></a>            <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;The data provided violates a database constraint: &quot;</span>
+</span><span id="__span-0-163"><a id="__codelineno-0-163" name="__codelineno-0-163"></a>            <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="o">.</span><span class="n">__cause__</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)[</span>
+</span><span id="__span-0-164"><a id="__codelineno-0-164" name="__codelineno-0-164"></a>                <span class="mi">0</span>
+</span><span id="__span-0-165"><a id="__codelineno-0-165" name="__codelineno-0-165"></a>            <span class="p">]</span>  <span class="c1"># Include only the first line of the error message for clarity</span>
+</span><span id="__span-0-166"><a id="__codelineno-0-166" name="__codelineno-0-166"></a>        <span class="p">},</span>
+</span><span id="__span-0-167"><a id="__codelineno-0-167" name="__codelineno-0-167"></a>        <span class="n">status</span><span class="o">=</span><span class="mi">422</span><span class="p">,</span>
+</span><span id="__span-0-168"><a id="__codelineno-0-168" name="__codelineno-0-168"></a>    <span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="onconova.api.terminology_exception_handler" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <code class="highlight language-python"><span class="n">terminology_exception_handler</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">exc</span><span class="p">)</span></code>
+
+<a href="#onconova.api.terminology_exception_handler" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents ">
+
+
+            <details class="quote">
+              <summary>Source code in <code>onconova/api.py</code></summary>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-151">151</a></span>
+<span class="normal"><a href="#__codelineno-0-152">152</a></span>
+<span class="normal"><a href="#__codelineno-0-153">153</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-151"><a id="__codelineno-0-151" name="__codelineno-0-151"></a><span class="nd">@api</span><span class="o">.</span><span class="n">exception_handler</span><span class="p">(</span><span class="n">CodedConceptDoesNotExist</span><span class="p">)</span>
+</span><span id="__span-0-152"><a id="__codelineno-0-152" name="__codelineno-0-152"></a><span class="k">def</span><span class="w"> </span><span class="nf">terminology_exception_handler</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">exc</span><span class="p">):</span>
+</span><span id="__span-0-153"><a id="__codelineno-0-153" name="__codelineno-0-153"></a>    <span class="k">return</span> <span class="n">api</span><span class="o">.</span><span class="n">create_response</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">)},</span> <span class="n">status</span><span class="o">=</span><span class="mi">422</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
 
 
   </div>
 
     </div>
 
-</div><div class='document-dates-plugin-wrapper document-dates-bottom'><div class='document-dates-plugin'><span data-tippy-content='Created: 2026-03-25'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-25T14:04:36.639634' locale='en'>2026-03-25</time></span><span data-tippy-content='Last Update: 2026-03-25'><span class='material-icons' data-icon='doc_modified'></span><time datetime='2026-03-25T14:04:36.639634' locale='en'>2026-03-25</time></span><span data-tippy-content='Author: runner'><span class='material-icons' data-icon='doc_author'></span>runner</span></div></div>
+</div><div class='document-dates-plugin-wrapper document-dates-bottom'><div class='document-dates-plugin'><span data-tippy-content='Created: 2026-03-26'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-26T08:55:55.824926' locale='en'>2026-03-26</time></span><span data-tippy-content='Last Update: 2026-03-26'><span class='material-icons' data-icon='doc_modified'></span><time datetime='2026-03-26T08:55:55.824926' locale='en'>2026-03-26</time></span><span data-tippy-content='Author: runner'><span class='material-icons' data-icon='doc_author'></span>runner</span></div></div>
 
 
 
