@@ -66,13 +66,13 @@
     
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
-      <link rel="stylesheet" href="../../../../assets/document_dates/tippy/tippy.css">
-    
-      <link rel="stylesheet" href="../../../../assets/document_dates/tippy/scale.css">
-    
       <link rel="stylesheet" href="../../../../assets/document_dates/tippy/material.css">
     
       <link rel="stylesheet" href="../../../../assets/document_dates/tippy/shift-away.css">
+    
+      <link rel="stylesheet" href="../../../../assets/document_dates/tippy/tippy.css">
+    
+      <link rel="stylesheet" href="../../../../assets/document_dates/tippy/scale.css">
     
       <link rel="stylesheet" href="../../../../assets/document_dates/tippy/light.css">
     
@@ -8933,7 +8933,7 @@ manually sets the event timestamp, and finally adds a manual event indicating th
 </span><span id="__span-0-269"><a id="__codelineno-0-269" name="__codelineno-0-269"></a>        <span class="n">instance</span><span class="o">=</span><span class="n">instance</span><span class="p">,</span>
 </span><span id="__span-0-270"><a id="__codelineno-0-270" name="__codelineno-0-270"></a>        <span class="o">**</span><span class="n">fields</span><span class="p">,</span>
 </span><span id="__span-0-271"><a id="__codelineno-0-271" name="__codelineno-0-271"></a>        <span class="n">external_source</span><span class="o">=</span><span class="n">resource</span><span class="o">.</span><span class="n">externalSource</span> <span class="ow">or</span> <span class="s2">&quot;Onconova&quot;</span><span class="p">,</span> <span class="c1"># type: ignore </span>
-</span><span id="__span-0-272"><a id="__codelineno-0-272" name="__codelineno-0-272"></a>        <span class="n">external_source_id</span><span class="o">=</span><span class="n">resourceId</span><span class="p">,</span>
+</span><span id="__span-0-272"><a id="__codelineno-0-272" name="__codelineno-0-272"></a>        <span class="n">external_source_id</span><span class="o">=</span><span class="n">resource</span><span class="o">.</span><span class="n">externalSourceId</span> <span class="ow">or</span> <span class="n">resourceId</span><span class="p">,</span> <span class="c1"># type: ignore </span>
 </span><span id="__span-0-273"><a id="__codelineno-0-273" name="__codelineno-0-273"></a>    <span class="p">)</span>
 </span><span id="__span-0-274"><a id="__codelineno-0-274" name="__codelineno-0-274"></a>    <span class="c1"># Delete the create event that just happened</span>
 </span><span id="__span-0-275"><a id="__codelineno-0-275" name="__codelineno-0-275"></a>    <span class="n">orm_instance</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">latest</span><span class="p">(</span><span class="s2">&quot;pgh_created_at&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
@@ -9224,7 +9224,7 @@ For fields ending with 'Ids', replaces the list of external key values with a li
 
     </div>
 
-</div><div class='document-dates-plugin-wrapper document-dates-bottom'><div class='document-dates-plugin'><span data-tippy-content='Created: 2026-04-01'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-04-01T13:19:54.509734' locale='en'>2026-04-01</time></span><span data-tippy-content='Last Update: 2026-04-01'><span class='material-icons' data-icon='doc_modified'></span><time datetime='2026-04-01T13:19:54.509734' locale='en'>2026-04-01</time></span><span data-tippy-content='Author: runner'><span class='material-icons' data-icon='doc_author'></span>runner</span></div></div>
+</div><div class='document-dates-plugin-wrapper document-dates-bottom'><div class='document-dates-plugin'><span data-tippy-content='Created: 2026-04-13'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-04-13T14:15:22.852246' locale='en'>2026-04-13</time></span><span data-tippy-content='Last Update: 2026-04-13'><span class='material-icons' data-icon='doc_modified'></span><time datetime='2026-04-13T14:15:22.852246' locale='en'>2026-04-13</time></span><span data-tippy-content='Author: runner'><span class='material-icons' data-icon='doc_author'></span>runner</span></div></div>
 
 
 
