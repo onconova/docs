@@ -333,6 +333,10 @@
          <lastmod>2026-04-16</lastmod>
     </url>
     <url>
+         <loc>http://0.0.0.0/docs/dev/server-reference/onconova/interoperability/fhir/models/GenomicsBase/</loc>
+         <lastmod>2026-04-16</lastmod>
+    </url>
+    <url>
          <loc>http://0.0.0.0/docs/dev/server-reference/onconova/interoperability/fhir/models/HomologousRecombinationDeficiency/</loc>
          <lastmod>2026-04-16</lastmod>
     </url>
@@ -382,6 +386,10 @@
     </url>
     <url>
          <loc>http://0.0.0.0/docs/dev/server-reference/onconova/interoperability/fhir/models/SurgicalProcedure/</loc>
+         <lastmod>2026-04-16</lastmod>
+    </url>
+    <url>
+         <loc>http://0.0.0.0/docs/dev/server-reference/onconova/interoperability/fhir/models/TNMCategory/</loc>
          <lastmod>2026-04-16</lastmod>
     </url>
     <url>
@@ -442,6 +450,18 @@
     </url>
     <url>
          <loc>http://0.0.0.0/docs/dev/server-reference/onconova/interoperability/fhir/models/TumorNeoantigenBurden/</loc>
+         <lastmod>2026-04-16</lastmod>
+    </url>
+    <url>
+         <loc>http://0.0.0.0/docs/dev/server-reference/onconova/interoperability/fhir/models/USCoreConditionProblemsHealthConcerns/</loc>
+         <lastmod>2026-04-16</lastmod>
+    </url>
+    <url>
+         <loc>http://0.0.0.0/docs/dev/server-reference/onconova/interoperability/fhir/models/USCoreObservationClinicalResult/</loc>
+         <lastmod>2026-04-16</lastmod>
+    </url>
+    <url>
+         <loc>http://0.0.0.0/docs/dev/server-reference/onconova/interoperability/fhir/models/USCoreSimpleObservation/</loc>
          <lastmod>2026-04-16</lastmod>
     </url>
     <url>

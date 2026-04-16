@@ -3610,6 +3610,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../models/GenomicsBase/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GenomicsBase
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../models/HomologousRecombinationDeficiency/" class="md-nav__link">
         
   
@@ -3892,6 +3915,29 @@
   
   <span class="md-ellipsis">
     SurgicalProcedure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/TNMCategory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TNMCategory
     
   </span>
   
@@ -4237,6 +4283,75 @@
   
   <span class="md-ellipsis">
     TumorNeoantigenBurden
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/USCoreConditionProblemsHealthConcerns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    USCoreConditionProblemsHealthConcerns
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/USCoreObservationClinicalResult/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    USCoreObservationClinicalResult
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/USCoreSimpleObservation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    USCoreSimpleObservation
     
   </span>
   
@@ -7923,7 +8038,7 @@ as a coding element.</p>
 </span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">        &gt;&gt;&gt; codeable = construct_fhir_codeable_concept(coding)</span>
 </span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">concept</span><span class="p">,</span> <span class="n">CodedConcept</span><span class="p">):</span>
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29"></a>        <span class="k">return</span> <span class="n">CodeableConcept</span><span class="p">(</span><span class="n">coding</span><span class="o">=</span><span class="p">[</span><span class="n">Coding</span><span class="o">.</span><span class="n">model_validate</span><span class="p">(</span><span class="n">concept</span><span class="o">.</span><span class="n">model_dump</span><span class="p">())])</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29"></a>        <span class="k">return</span> <span class="n">CodeableConcept</span><span class="p">(</span><span class="n">coding</span><span class="o">=</span><span class="p">[</span><span class="n">Coding</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="n">concept</span><span class="o">.</span><span class="n">code</span><span class="p">,</span> <span class="n">system</span><span class="o">=</span><span class="n">concept</span><span class="o">.</span><span class="n">system</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="n">concept</span><span class="o">.</span><span class="n">version</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="n">concept</span><span class="o">.</span><span class="n">display</span><span class="p">)])</span>
 </span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">concept</span><span class="p">,</span> <span class="n">Coding</span><span class="p">):</span>
 </span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31"></a>        <span class="k">return</span> <span class="n">CodeableConcept</span><span class="p">(</span><span class="n">coding</span><span class="o">=</span><span class="p">[</span><span class="n">concept</span><span class="p">])</span>
 </span></code></pre></div></td></tr></table></div>
@@ -8768,7 +8883,7 @@ Handles both simple units and compound units with division.</p>
 
     </div>
 
-</div><div class='document-dates-plugin-wrapper document-dates-bottom'><div class='document-dates-plugin'><span data-tippy-content='Created: 2026-04-16'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-04-16T08:29:13.926490' locale='en'>2026-04-16</time></span><span data-tippy-content='Last Update: 2026-04-16'><span class='material-icons' data-icon='doc_modified'></span><time datetime='2026-04-16T08:29:13.926490' locale='en'>2026-04-16</time></span><span data-tippy-content='Author: runner'><span class='material-icons' data-icon='doc_author'></span>runner</span></div></div>
+</div><div class='document-dates-plugin-wrapper document-dates-bottom'><div class='document-dates-plugin'><span data-tippy-content='Created: 2026-04-16'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-04-16T14:20:53.141039' locale='en'>2026-04-16</time></span><span data-tippy-content='Last Update: 2026-04-16'><span class='material-icons' data-icon='doc_modified'></span><time datetime='2026-04-16T14:20:53.141039' locale='en'>2026-04-16</time></span><span data-tippy-content='Author: runner'><span class='material-icons' data-icon='doc_author'></span>runner</span></div></div>
 
 
 
