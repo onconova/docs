@@ -998,7 +998,9 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>rxResource({
-    request: () &#x3D;&gt; ({membersUsername: this.#currentUser()?.username, status: &#x27;ongoing&#x27;} as GetProjectsRequestParams),
+    request: () &#x3D;&gt; (
+      (this.#currentUser().role !&#x3D;&#x3D; AccessRoles.PlatformManager &amp;&amp; this.#currentUser().role !&#x3D;&#x3D; AccessRoles.SystemAdministrator) ? {membersUsername: this.#currentUser()?.username, status: &#x27;ongoing&#x27;} as GetProjectsRequestParams : {} as GetProjectsRequestParams
+    ),
     loader: ({request}) &#x3D;&gt; this.#projectsService.getProjects(request).pipe(
       map(response &#x3D;&gt; response.items)
     )
@@ -1264,7 +1266,7 @@ import { ToggleSwitch } from &#x27;primeng/toggleswitch&#x27;;
 import { Fluid } from &#x27;primeng/fluid&#x27;;
 import { InputText } from &#x27;primeng/inputtext&#x27;;
 
-import { CohortCreate, Cohort, CohortsService, ProjectsService, GetProjectsRequestParams } from &#x27;onconova-api-client&#x27;
+import { CohortCreate, Cohort, CohortsService, ProjectsService, GetProjectsRequestParams, AccessRoles } from &#x27;onconova-api-client&#x27;
 
 import { AbstractFormBase } from &#x27;../abstract-form-base.component&#x27;;
 import { 
@@ -1303,7 +1305,7 @@ export class CohortFormComponent extends AbstractFormBase {
   readonly #fb &#x3D; inject(FormBuilder);
 
   #currentUser &#x3D; computed(() &#x3D;&gt; this.#authService.user());
-  protected invalidUser &#x3D; computed(() &#x3D;&gt; this.relatedProjects.hasValue() &amp;&amp; this.relatedProjects.value().length &#x3D;&#x3D;&#x3D; 0)
+  protected invalidUser &#x3D; computed(() &#x3D;&gt; this.relatedProjects.hasValue() &amp;&amp; this.relatedProjects.value().length &#x3D;&#x3D;&#x3D; 0);
   // Create and update service methods for the form data
   public readonly createService &#x3D; (payload: CohortCreate) &#x3D;&gt; this.#cohortsService.createCohort({cohortCreate: payload});
   public readonly updateService &#x3D; (id: string, payload: CohortCreate) &#x3D;&gt; this.#cohortsService.updateCohort({cohortId: id, cohortCreate: payload});
@@ -1326,7 +1328,9 @@ export class CohortFormComponent extends AbstractFormBase {
   }
 
   protected relatedProjects &#x3D; rxResource({
-    request: () &#x3D;&gt; ({membersUsername: this.#currentUser()?.username, status: &#x27;ongoing&#x27;} as GetProjectsRequestParams),
+    request: () &#x3D;&gt; (
+      (this.#currentUser().role !&#x3D;&#x3D; AccessRoles.PlatformManager &amp;&amp; this.#currentUser().role !&#x3D;&#x3D; AccessRoles.SystemAdministrator) ? {membersUsername: this.#currentUser()?.username, status: &#x27;ongoing&#x27;} as GetProjectsRequestParams : {} as GetProjectsRequestParams
+    ),
     loader: ({request}) &#x3D;&gt; this.#projectsService.getProjects(request).pipe(
       map(response &#x3D;&gt; response.items)
     )
