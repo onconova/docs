@@ -117,14 +117,6 @@
 </p>
 
 
-    <p class="comment">
-        <h3>Description</h3>
-    </p>
-    <p class="comment">
-        <p>Custom event component for displaying neoplastic entities in the timeline.
-Renders the topography, morphology, and relationship information in a compact format.</p>
-
-    </p>
 
 
 
@@ -163,10 +155,33 @@ Renders the topography, morphology, and relationship information in a compact fo
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;div&gt;
-    &lt;p-chip [label]&#x3D;&quot;therapyLine()&quot; styleClass&#x3D;&quot;tag tag-primary-outline&quot;/&gt;
-    {{ description() }}
-&lt;/div&gt;
+                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">@if (isSystemicTherapy()) {
+    &lt;div class&#x3D;&quot;st-event&quot;&gt;
+        &lt;div class&#x3D;&quot;st-drugs&quot;&gt;{{ drugNames() }}&lt;/div&gt;
+        &lt;div class&#x3D;&quot;st-meta&quot;&gt;
+            @if (therapyLine()) {
+                &lt;p-chip [label]&#x3D;&quot;therapyLine()&quot; styleClass&#x3D;&quot;tag tag-primary-outline st-line-chip&quot;/&gt;
+            }
+            @if (cycles()) {
+                &lt;span class&#x3D;&quot;st-detail&quot;&gt;{{ cycles() }} cycles&lt;/span&gt;
+            }
+            @if (adjunctiveRole()) {
+                &lt;span class&#x3D;&quot;st-detail&quot;&gt;{{ adjunctiveRole() }}&lt;/span&gt;
+            }
+        &lt;/div&gt;
+    &lt;/div&gt;
+} @else {
+    &lt;div class&#x3D;&quot;st-event&quot;&gt;
+        @if (fallbackDescription()) {
+            &lt;div class&#x3D;&quot;st-drugs&quot;&gt;{{ fallbackDescription() }}&lt;/div&gt;
+        }
+        @if (therapyLine()) {
+            &lt;div class&#x3D;&quot;st-meta&quot;&gt;
+                &lt;p-chip [label]&#x3D;&quot;therapyLine()&quot; styleClass&#x3D;&quot;tag tag-primary-outline st-line-chip&quot;/&gt;
+            &lt;/div&gt;
+        }
+    &lt;/div&gt;
+}
 </code></pre></td>
             </tr>
 
@@ -195,10 +210,22 @@ Renders the topography, morphology, and relationship information in a compact fo
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#description" >description</a>
+                                <a href="#adjunctiveRole" >adjunctiveRole</a>
+                            </li>
+                            <li>
+                                <a href="#cycles" >cycles</a>
+                            </li>
+                            <li>
+                                <a href="#drugNames" >drugNames</a>
                             </li>
                             <li>
                                 <a href="#event" >event</a>
+                            </li>
+                            <li>
+                                <a href="#fallbackDescription" >fallbackDescription</a>
+                            </li>
+                            <li>
+                                <a href="#isSystemicTherapy" >isSystemicTherapy</a>
                             </li>
                             <li>
                                 <a href="#therapyLine" >therapyLine</a>
@@ -212,6 +239,20 @@ Renders the topography, morphology, and relationship information in a compact fo
 
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#asSystemic" >asSystemic</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
         </tbody>
     </table>
 </section>
@@ -231,23 +272,78 @@ Renders the topography, morphology, and relationship information in a compact fo
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="description"></a>
+                    <a name="adjunctiveRole"></a>
                     <span class="name">
-                        <span ><b>description</b></span>
-                        <a href="#description"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>adjunctiveRole</b></span>
+                        <a href="#adjunctiveRole"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>computed(() &#x3D;&gt; this.asSystemic?.adjunctiveRole?.display ?? null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/features/cases/case-manager/components/case-manager-panel/components/therapy-line-event.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cycles"></a>
+                    <span class="name">
+                        <span ><b>cycles</b></span>
+                        <a href="#cycles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>computed(() &#x3D;&gt; this.asSystemic?.cycles ?? null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/features/cases/case-manager/components/case-manager-panel/components/therapy-line-event.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="drugNames"></a>
+                    <span class="name">
+                        <span ><b>drugNames</b></span>
+                        <a href="#drugNames"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>computed(() &#x3D;&gt; {
-        return this.event()?.description.split(&#x27; - &#x27;)[1] || &#x27;&#x27;;
+        const meds &#x3D; this.asSystemic?.medications;
+        if (!meds?.length) return this.event()?.description ?? &#x27;&#x27;;
+        return meds
+            .map(m &#x3D;&gt; m.drug?.properties?.[&#x27;label&#x27;] || m.drug?.display || m.drug?.code)
+            .filter(Boolean)
+            .join(&#x27;/&#x27;);
     })</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/features/cases/case-manager/components/case-manager-panel/components/therapy-line-event.component.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/features/cases/case-manager/components/case-manager-panel/components/therapy-line-event.component.ts:49</a></div>
                         </td>
                     </tr>
 
@@ -272,7 +368,57 @@ Renders the topography, morphology, and relationship information in a compact fo
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/features/cases/case-manager/components/case-manager-panel/components/therapy-line-event.component.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/features/cases/case-manager/components/case-manager-panel/components/therapy-line-event.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fallbackDescription"></a>
+                    <span class="name">
+                        <span ><b>fallbackDescription</b></span>
+                        <a href="#fallbackDescription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>computed(() &#x3D;&gt; this.event()?.description.split(&#x27; - &#x27;)[1] ?? &#x27;&#x27;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/features/cases/case-manager/components/case-manager-panel/components/therapy-line-event.component.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSystemicTherapy"></a>
+                    <span class="name">
+                        <span ><b>isSystemicTherapy</b></span>
+                        <a href="#isSystemicTherapy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>computed(() &#x3D;&gt; &#x27;medications&#x27; in (this.event() ?? {}))</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/features/cases/case-manager/components/case-manager-panel/components/therapy-line-event.component.ts:43</a></div>
                         </td>
                     </tr>
 
@@ -292,14 +438,12 @@ Renders the topography, morphology, and relationship information in a compact fo
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>computed(() &#x3D;&gt; {
-        return this.event()?.description.split(&#x27; - &#x27;)[0] || &#x27;&#x27;;
-    })</code>
+                        <i>Default value : </i><code>computed(() &#x3D;&gt; this.event()?.description.split(&#x27; - &#x27;)[0] ?? &#x27;&#x27;)</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/features/cases/case-manager/components/case-manager-panel/components/therapy-line-event.component.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/features/cases/case-manager/components/case-manager-panel/components/therapy-line-event.component.ts:58</a></div>
                         </td>
                     </tr>
 
@@ -308,6 +452,33 @@ Renders the topography, morphology, and relationship information in a compact fo
     </table>
 </section>
 
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="asSystemic"></a>
+                        <span class="name"><b>asSystemic</b><a href="#asSystemic"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>asSystemic()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">/home/runner/work/onconova/onconova/client/src/app/features/cases/case-manager/components/case-manager-panel/components/therapy-line-event.component.ts:45</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
 </div>
 
 
@@ -316,29 +487,66 @@ Renders the topography, morphology, and relationship information in a compact fo
 import { CommonModule } from &#x27;@angular/common&#x27;;
 import { SystemicTherapy, Surgery, Radiotherapy } from &#x27;onconova-api-client&#x27;;
 import { Chip } from &#x27;primeng/chip&#x27;;
-/**
- * Custom event component for displaying neoplastic entities in the timeline.
- * Renders the topography, morphology, and relationship information in a compact format.
- */
+
 @Component({
     selector: &#x27;onconova-therapy-line-event&#x27;,
     template: &#x60;
-        &lt;div&gt;
-            &lt;p-chip [label]&#x3D;&quot;therapyLine()&quot; styleClass&#x3D;&quot;tag tag-primary-outline&quot;/&gt;
-            {{ description() }}
-        &lt;/div&gt;
+        @if (isSystemicTherapy()) {
+            &lt;div class&#x3D;&quot;st-event&quot;&gt;
+                &lt;div class&#x3D;&quot;st-drugs&quot;&gt;{{ drugNames() }}&lt;/div&gt;
+                &lt;div class&#x3D;&quot;st-meta&quot;&gt;
+                    @if (therapyLine()) {
+                        &lt;p-chip [label]&#x3D;&quot;therapyLine()&quot; styleClass&#x3D;&quot;tag tag-primary-outline st-line-chip&quot;/&gt;
+                    }
+                    @if (cycles()) {
+                        &lt;span class&#x3D;&quot;st-detail&quot;&gt;{{ cycles() }} cycles&lt;/span&gt;
+                    }
+                    @if (adjunctiveRole()) {
+                        &lt;span class&#x3D;&quot;st-detail&quot;&gt;{{ adjunctiveRole() }}&lt;/span&gt;
+                    }
+                &lt;/div&gt;
+            &lt;/div&gt;
+        } @else {
+            &lt;div class&#x3D;&quot;st-event&quot;&gt;
+                @if (fallbackDescription()) {
+                    &lt;div class&#x3D;&quot;st-drugs&quot;&gt;{{ fallbackDescription() }}&lt;/div&gt;
+                }
+                @if (therapyLine()) {
+                    &lt;div class&#x3D;&quot;st-meta&quot;&gt;
+                        &lt;p-chip [label]&#x3D;&quot;therapyLine()&quot; styleClass&#x3D;&quot;tag tag-primary-outline st-line-chip&quot;/&gt;
+                    &lt;/div&gt;
+                }
+            &lt;/div&gt;
+        }
     &#x60;,
     imports: [CommonModule, Chip]
 })
 export class TherapyLineEventComponent {
 
     event &#x3D; input&lt;SystemicTherapy | Surgery | Radiotherapy&gt;();
-    therapyLine &#x3D; computed(() &#x3D;&gt; {
-        return this.event()?.description.split(&#x27; - &#x27;)[0] || &#x27;&#x27;;
-    })
-    description &#x3D; computed(() &#x3D;&gt; {
-        return this.event()?.description.split(&#x27; - &#x27;)[1] || &#x27;&#x27;;
-    })
+
+    isSystemicTherapy &#x3D; computed(() &#x3D;&gt; &#x27;medications&#x27; in (this.event() ?? {}));
+
+    private get asSystemic(): SystemicTherapy {
+        return this.event() as SystemicTherapy;
+    }
+
+    drugNames &#x3D; computed(() &#x3D;&gt; {
+        const meds &#x3D; this.asSystemic?.medications;
+        if (!meds?.length) return this.event()?.description ?? &#x27;&#x27;;
+        return meds
+            .map(m &#x3D;&gt; m.drug?.properties?.[&#x27;label&#x27;] || m.drug?.display || m.drug?.code)
+            .filter(Boolean)
+            .join(&#x27;/&#x27;);
+    });
+
+    therapyLine &#x3D; computed(() &#x3D;&gt; this.event()?.description.split(&#x27; - &#x27;)[0] ?? &#x27;&#x27;);
+
+    cycles &#x3D; computed(() &#x3D;&gt; this.asSystemic?.cycles ?? null);
+
+    adjunctiveRole &#x3D; computed(() &#x3D;&gt; this.asSystemic?.adjunctiveRole?.display ?? null);
+
+    fallbackDescription &#x3D; computed(() &#x3D;&gt; this.event()?.description.split(&#x27; - &#x27;)[1] ?? &#x27;&#x27;);
 }
 </code></pre>
     </div>
@@ -370,8 +578,8 @@ export class TherapyLineEventComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div>    <p-chip [label]="therapyLine()" styleClass="tag tag-primary-outline"/>    {{ description() }}</div></div>'
-    var COMPONENTS = [{'name': 'AbstractFormBase', 'selector': ''},{'name': 'AdverseEventFormComponent', 'selector': 'adverse-event-form'},{'name': 'AppComponent', 'selector': 'onconova-root'},{'name': 'AppFooterComponent', 'selector': 'onconova-footer'},{'name': 'AppLayoutComponent', 'selector': 'onconova-layout'},{'name': 'AppSidebarMenuComponent', 'selector': 'onconova-sidebar-menu'},{'name': 'AppTopBarComponent', 'selector': 'onconova-topbar'},{'name': 'AuthCallbackComponent', 'selector': 'app-auth-callback'},{'name': 'AuthLayoutComponent', 'selector': 'onconova-auth-layout'},{'name': 'BoxPlotComponent', 'selector': 'onconova-box-plot'},{'name': 'CancerIconComponent', 'selector': 'onconova-cancer-icon'},{'name': 'CaseImporterBundleViewerComponent', 'selector': 'onconova-case-importer-bundle-viewer'},{'name': 'CaseImporterComponent', 'selector': 'onconova-case-importer'},{'name': 'CaseManagerComponent', 'selector': 'onconova-case-manager'},{'name': 'CaseManagerDrawerComponent', 'selector': 'onconova-case-manager-drawer'},{'name': 'CaseManagerPanelComponent', 'selector': 'onconova-case-manager-panel'},{'name': 'CaseManagerPanelTimelineComponent', 'selector': 'onconova-case-manager-panel-timeline'},{'name': 'CaseSearchComponent', 'selector': ''},{'name': 'CaseSearchItemCardComponent', 'selector': 'onconova-case-search-item,[onconova-case-search-item]'},{'name': 'CodedConceptTreeComponent', 'selector': 'onconova-coded-concept-tree'},{'name': 'CohortBuilderComponent', 'selector': 'onconova-cohort-manager'},{'name': 'CohortContributorsComponent', 'selector': 'onconova-cohort-contributors'},{'name': 'CohortFormComponent', 'selector': 'cohort-form'},{'name': 'CohortGraphsComponent', 'selector': 'onconova-cohort-graphs'},{'name': 'CohortGraphsContextMenu', 'selector': 'onconova-cohort-graph-context-menu'},{'name': 'CohortQueryBuilderComponent', 'selector': 'onconova-cohort-query-builder'},{'name': 'CohortSearchComponent', 'selector': ''},{'name': 'CohortSearchItemComponent', 'selector': 'onconova-cohort-search-item, [onconova-cohort-search-item]'},{'name': 'CohortTraitPanel', 'selector': 'onconova-cohort-trait'},{'name': 'ComorbiditiesAssessmentFormComponent', 'selector': 'comorbidities-form'},{'name': 'ConceptSelectorComponent', 'selector': 'onconova-concept-selector'},{'name': 'ConsentNoticeModalComponent', 'selector': 'onconova-consent-modal'},{'name': 'DashboardComponent', 'selector': 'onconova-dashboard'},{'name': 'DataCompletionStatsComponent', 'selector': 'onconova-data-completion-stats'},{'name': 'DatasetComposerComponent', 'selector': 'onconova-dataset-composer'},{'name': 'DataSummaryComponent', 'selector': 'onconova-data-summary'},{'name': 'DataSummaryCounterComponent', 'selector': 'onconova-data-summary-counter'},{'name': 'DatePickerComponent', 'selector': 'onconova-datepicker'},{'name': 'DisclaimerBannerComponent', 'selector': 'onconova-disclaimer-banner'},{'name': 'DistributionGraphComponent', 'selector': 'onconova-distribution-graph'},{'name': 'DoughnutGraphComponent', 'selector': 'onconova-doughnut-graph'},{'name': 'DrawerDataPropertiesComponent', 'selector': 'onconova-drawer-properties'},{'name': 'ErrorComponent', 'selector': 'onconova-error'},{'name': 'ExportConfirmDialogComponent', 'selector': 'onconova-export-confirm-dialog'},{'name': 'FamilyHistoryFormComponent', 'selector': 'family-history-form'},{'name': 'FormControlErrorComponent', 'selector': 'onconova-form-control-error'},{'name': 'GenomicSignatureFormComponent', 'selector': 'genomic-signature-form'},{'name': 'GenomicVariantFormComponent', 'selector': 'genomic-variant-form'},{'name': 'IdenticonComponent', 'selector': 'onconova-identicon'},{'name': 'KapplerMeierCurveComponent', 'selector': 'onconova-kappler-meier-curve'},{'name': 'LifestyleFormComponent', 'selector': 'lifestyle-form'},{'name': 'LoginComponent', 'selector': 'onconova-login'},{'name': 'MeasureInputComponent', 'selector': 'onconova-measure-input'},{'name': 'ModalFormHeaderComponent', 'selector': 'onconova-modal-form-header'},{'name': 'MultilineEventComponent', 'selector': 'onconova-multiline-event'},{'name': 'MultiReferenceSelectComponent', 'selector': 'onconova-multi-reference-select'},{'name': 'NeoplasticEntityEventComponent', 'selector': 'onconova-neoplastic-entity-event'},{'name': 'NeoplasticEntityFormComponent', 'selector': 'neoplastic-entity-form'},{'name': 'NestedTableComponent', 'selector': 'onconova-nested-table'},{'name': 'OncoplotComponent', 'selector': 'onconova-oncoplot'},{'name': 'PasswordResetFormComponent', 'selector': 'onconova-password-reset-dialog'},{'name': 'PatientFormComponent', 'selector': 'patient-form'},{'name': 'PerformanceStatusFormComponent', 'selector': 'performance-status-form'},{'name': 'PopoverFilterButtonComponent', 'selector': 'onconova-popover-filter-button'},{'name': 'PrimaryEntitiesTableComponent', 'selector': 'onconova-primary-entities-table'},{'name': 'ProjectFormComponent', 'selector': 'project-form'},{'name': 'ProjectManagementComponent', 'selector': 'onconova-project-management'},{'name': 'ProjectSearchComponent', 'selector': 'onconova-project-search'},{'name': 'ProjectSearchItemComponent', 'selector': 'onconova-project-search-item, [onconova-project-search-item]'},{'name': 'ProviderSignupComponent', 'selector': 'app-signup'},{'name': 'RadioSelectComponent', 'selector': 'onconova-radio-select'},{'name': 'RadiotherapyFormComponent', 'selector': 'radiotherapy-form'},{'name': 'RandomPaperComponent', 'selector': 'onconova-random-paper'},{'name': 'RangeInputComponent', 'selector': 'onconova-range-input'},{'name': 'RiskAssessmentFormComponent', 'selector': 'risk-assessment-form'},{'name': 'SettingsDialogComponent', 'selector': 'onconova-settings-dialog'},{'name': 'StagingFormComponent', 'selector': 'staging-form'},{'name': 'SurgeryFormComponent', 'selector': 'surgery-form'},{'name': 'SystemicTherapyFormComponent', 'selector': 'systemic-therapy-form'},{'name': 'TherapyLineEventComponent', 'selector': 'onconova-therapy-line-event'},{'name': 'TreatmentResponseFormComponent', 'selector': 'treatment-response-form'},{'name': 'TumorBoardFormComponent', 'selector': 'tumor-board-form'},{'name': 'TumorMarkerEventComponent', 'selector': 'onconova-tumor-marker-event'},{'name': 'TumorMarkerFormComponent', 'selector': 'tumor-marker-form'},{'name': 'UserBadgeComponent', 'selector': 'onconova-user-badge'},{'name': 'UserDetailsComponent', 'selector': 'onconova-user-details'},{'name': 'UserFormComponent', 'selector': 'onconova-user-form'},{'name': 'UserSelectorComponent', 'selector': 'onconova-user-selector'},{'name': 'UsersManagementCompnent', 'selector': 'onconova-users-management'},{'name': 'VitalsFormComponent', 'selector': 'vitals-form'}];
+        var COMPONENT_TEMPLATE = '<div>@if (isSystemicTherapy()) {    <div class="st-event">        <div class="st-drugs">{{ drugNames() }}</div>        <div class="st-meta">            @if (therapyLine()) {                <p-chip [label]="therapyLine()" styleClass="tag tag-primary-outline st-line-chip"/>            }            @if (cycles()) {                <span class="st-detail">{{ cycles() }} cycles</span>            }            @if (adjunctiveRole()) {                <span class="st-detail">{{ adjunctiveRole() }}</span>            }        </div>    </div>} @else {    <div class="st-event">        @if (fallbackDescription()) {            <div class="st-drugs">{{ fallbackDescription() }}</div>        }        @if (therapyLine()) {            <div class="st-meta">                <p-chip [label]="therapyLine()" styleClass="tag tag-primary-outline st-line-chip"/>            </div>        }    </div>}</div>'
+    var COMPONENTS = [{'name': 'AbstractFormBase', 'selector': ''},{'name': 'AdverseEventEventComponent', 'selector': 'onconova-adverse-event-event'},{'name': 'AdverseEventFormComponent', 'selector': 'adverse-event-form'},{'name': 'AppComponent', 'selector': 'onconova-root'},{'name': 'AppFooterComponent', 'selector': 'onconova-footer'},{'name': 'AppLayoutComponent', 'selector': 'onconova-layout'},{'name': 'AppSidebarMenuComponent', 'selector': 'onconova-sidebar-menu'},{'name': 'AppTopBarComponent', 'selector': 'onconova-topbar'},{'name': 'AuthCallbackComponent', 'selector': 'app-auth-callback'},{'name': 'AuthLayoutComponent', 'selector': 'onconova-auth-layout'},{'name': 'BoxPlotComponent', 'selector': 'onconova-box-plot'},{'name': 'CancerIconComponent', 'selector': 'onconova-cancer-icon'},{'name': 'CaseImporterBundleViewerComponent', 'selector': 'onconova-case-importer-bundle-viewer'},{'name': 'CaseImporterComponent', 'selector': 'onconova-case-importer'},{'name': 'CaseManagerComponent', 'selector': 'onconova-case-manager'},{'name': 'CaseManagerDrawerComponent', 'selector': 'onconova-case-manager-drawer'},{'name': 'CaseManagerPanelComponent', 'selector': 'onconova-case-manager-panel'},{'name': 'CaseManagerPanelTimelineComponent', 'selector': 'onconova-case-manager-panel-timeline'},{'name': 'CaseSearchComponent', 'selector': ''},{'name': 'CaseSearchItemCardComponent', 'selector': 'onconova-case-search-item,[onconova-case-search-item]'},{'name': 'CodedConceptTreeComponent', 'selector': 'onconova-coded-concept-tree'},{'name': 'CohortBuilderComponent', 'selector': 'onconova-cohort-manager'},{'name': 'CohortContributorsComponent', 'selector': 'onconova-cohort-contributors'},{'name': 'CohortFormComponent', 'selector': 'cohort-form'},{'name': 'CohortGraphsComponent', 'selector': 'onconova-cohort-graphs'},{'name': 'CohortGraphsContextMenu', 'selector': 'onconova-cohort-graph-context-menu'},{'name': 'CohortQueryBuilderComponent', 'selector': 'onconova-cohort-query-builder'},{'name': 'CohortSearchComponent', 'selector': ''},{'name': 'CohortSearchItemComponent', 'selector': 'onconova-cohort-search-item, [onconova-cohort-search-item]'},{'name': 'CohortTraitPanel', 'selector': 'onconova-cohort-trait'},{'name': 'ComorbiditiesAssessmentFormComponent', 'selector': 'comorbidities-form'},{'name': 'ConceptSelectorComponent', 'selector': 'onconova-concept-selector'},{'name': 'ConsentNoticeModalComponent', 'selector': 'onconova-consent-modal'},{'name': 'DashboardComponent', 'selector': 'onconova-dashboard'},{'name': 'DataCompletionStatsComponent', 'selector': 'onconova-data-completion-stats'},{'name': 'DatasetComposerComponent', 'selector': 'onconova-dataset-composer'},{'name': 'DataSummaryComponent', 'selector': 'onconova-data-summary'},{'name': 'DataSummaryCounterComponent', 'selector': 'onconova-data-summary-counter'},{'name': 'DatePickerComponent', 'selector': 'onconova-datepicker'},{'name': 'DisclaimerBannerComponent', 'selector': 'onconova-disclaimer-banner'},{'name': 'DistributionGraphComponent', 'selector': 'onconova-distribution-graph'},{'name': 'DoughnutGraphComponent', 'selector': 'onconova-doughnut-graph'},{'name': 'DrawerDataPropertiesComponent', 'selector': 'onconova-drawer-properties'},{'name': 'ErrorComponent', 'selector': 'onconova-error'},{'name': 'ExportConfirmDialogComponent', 'selector': 'onconova-export-confirm-dialog'},{'name': 'FamilyHistoryFormComponent', 'selector': 'family-history-form'},{'name': 'FormControlErrorComponent', 'selector': 'onconova-form-control-error'},{'name': 'GenomicSignatureEventComponent', 'selector': 'onconova-genomic-signature-event'},{'name': 'GenomicSignatureFormComponent', 'selector': 'genomic-signature-form'},{'name': 'GenomicVariantEventComponent', 'selector': 'onconova-genomic-variant-event'},{'name': 'GenomicVariantFormComponent', 'selector': 'genomic-variant-form'},{'name': 'IdenticonComponent', 'selector': 'onconova-identicon'},{'name': 'KapplerMeierCurveComponent', 'selector': 'onconova-kappler-meier-curve'},{'name': 'LifestyleEventComponent', 'selector': 'onconova-lifestyle-event'},{'name': 'LifestyleFormComponent', 'selector': 'lifestyle-form'},{'name': 'LoginComponent', 'selector': 'onconova-login'},{'name': 'MeasureInputComponent', 'selector': 'onconova-measure-input'},{'name': 'ModalFormHeaderComponent', 'selector': 'onconova-modal-form-header'},{'name': 'MultilineEventComponent', 'selector': 'onconova-multiline-event'},{'name': 'MultiReferenceSelectComponent', 'selector': 'onconova-multi-reference-select'},{'name': 'NeoplasticEntityEventComponent', 'selector': 'onconova-neoplastic-entity-event'},{'name': 'NeoplasticEntityFormComponent', 'selector': 'neoplastic-entity-form'},{'name': 'NestedTableComponent', 'selector': 'onconova-nested-table'},{'name': 'OncoplotComponent', 'selector': 'onconova-oncoplot'},{'name': 'PasswordResetFormComponent', 'selector': 'onconova-password-reset-dialog'},{'name': 'PatientFormComponent', 'selector': 'patient-form'},{'name': 'PerformanceStatusEventComponent', 'selector': 'onconova-performance-status-event'},{'name': 'PerformanceStatusFormComponent', 'selector': 'performance-status-form'},{'name': 'PopoverFilterButtonComponent', 'selector': 'onconova-popover-filter-button'},{'name': 'PrimaryEntitiesTableComponent', 'selector': 'onconova-primary-entities-table'},{'name': 'ProjectFormComponent', 'selector': 'project-form'},{'name': 'ProjectManagementComponent', 'selector': 'onconova-project-management'},{'name': 'ProjectSearchComponent', 'selector': 'onconova-project-search'},{'name': 'ProjectSearchItemComponent', 'selector': 'onconova-project-search-item, [onconova-project-search-item]'},{'name': 'ProviderSignupComponent', 'selector': 'app-signup'},{'name': 'RadioSelectComponent', 'selector': 'onconova-radio-select'},{'name': 'RadiotherapyFormComponent', 'selector': 'radiotherapy-form'},{'name': 'RandomPaperComponent', 'selector': 'onconova-random-paper'},{'name': 'RangeInputComponent', 'selector': 'onconova-range-input'},{'name': 'RiskAssessmentFormComponent', 'selector': 'risk-assessment-form'},{'name': 'SettingsDialogComponent', 'selector': 'onconova-settings-dialog'},{'name': 'StagingFormComponent', 'selector': 'staging-form'},{'name': 'SurgeryFormComponent', 'selector': 'surgery-form'},{'name': 'SystemicTherapyFormComponent', 'selector': 'systemic-therapy-form'},{'name': 'TerminologyBrowserComponent', 'selector': ''},{'name': 'TherapyLineEventComponent', 'selector': 'onconova-therapy-line-event'},{'name': 'TreatmentResponseFormComponent', 'selector': 'treatment-response-form'},{'name': 'TumorBoardFormComponent', 'selector': 'tumor-board-form'},{'name': 'TumorMarkerEventComponent', 'selector': 'onconova-tumor-marker-event'},{'name': 'TumorMarkerFormComponent', 'selector': 'tumor-marker-form'},{'name': 'UserBadgeComponent', 'selector': 'onconova-user-badge'},{'name': 'UserDetailsComponent', 'selector': 'onconova-user-details'},{'name': 'UserFormComponent', 'selector': 'onconova-user-form'},{'name': 'UserSelectorComponent', 'selector': 'onconova-user-selector'},{'name': 'UsersManagementCompnent', 'selector': 'onconova-users-management'},{'name': 'VitalsEventComponent', 'selector': 'onconova-vitals-event'},{'name': 'VitalsFormComponent', 'selector': 'vitals-form'},{'name': 'VitalsTimelineChartComponent', 'selector': 'onconova-vitals-timeline-chart'}];
     var DIRECTIVES = [{'name': 'DateMaskDirective', 'selector': '[dateMask]'}];
     var ACTUAL_COMPONENT = {'name': 'TherapyLineEventComponent'};
 </script>

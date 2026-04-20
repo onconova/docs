@@ -235,7 +235,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Output, Signal, Type, computed, inject, input } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Output, Signal, Type, computed, inject, input, signal } from &#x27;@angular/core&#x27;;
 import { EventEmitter } from &#x27;@angular/core&#x27;;
 import { CommonModule} from &#x27;@angular/common&#x27;;
 import { TimelineModule } from &#x27;primeng/timeline&#x27;;
@@ -252,42 +252,57 @@ export interface RadioChoice {
 @Component({
     selector: &#x27;onconova-case-manager-panel-timeline&#x27;,
     template: &#x60;
-        &lt;p-timeline [value]&#x3D;&quot;groupedEvents()&quot; class&#x3D;&quot;case-manager-panel-timeline&quot;&gt;
-            &lt;ng-template pTemplate&#x3D;&quot;content&quot; let-groupedEvents&gt;
-                &lt;div&gt;
-                    &lt;div class&#x3D;&quot;onconova-case-manager-panel-timeline-event-date mb-1&quot;&gt;
-                        &lt;small&gt;
-                            @if (typeCheck.isPeriod(groupedEvents.timestamp)) {
-                                {{ groupedEvents.timestamp.start | date }}
-                                -
-                                @if (groupedEvents.timestamp.end) {
-                                    {{ groupedEvents.timestamp?.end | date }}
+        @if (graphViewEnabled()) {
+            &lt;div class&#x3D;&quot;timeline-view-toggle&quot;&gt;
+                &lt;button class&#x3D;&quot;timeline-toggle-btn&quot; [class.active]&#x3D;&quot;viewMode() &#x3D;&#x3D;&#x3D; &#x27;list&#x27;&quot; (click)&#x3D;&quot;setViewMode(&#x27;list&#x27;)&quot; title&#x3D;&quot;List view&quot;&gt;
+                    &lt;i class&#x3D;&quot;pi pi-list&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+                &lt;button class&#x3D;&quot;timeline-toggle-btn&quot; [class.active]&#x3D;&quot;viewMode() &#x3D;&#x3D;&#x3D; &#x27;graph&#x27;&quot; (click)&#x3D;&quot;setViewMode(&#x27;graph&#x27;)&quot; title&#x3D;&quot;Graph view&quot;&gt;
+                    &lt;i class&#x3D;&quot;pi pi-chart-bar&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+            &lt;/div&gt;
+        }
+        @if (viewMode() &#x3D;&#x3D;&#x3D; &#x27;graph&#x27; &amp;&amp; graphChartComponent()) {
+            &lt;ng-container [ngComponentOutlet]&#x3D;&quot;graphChartComponent()!&quot;
+                          [ngComponentOutletInputs]&#x3D;&quot;{ events: events(), onEventClick: chartClickHandler }&quot;/&gt;
+        } @else {
+            &lt;p-timeline [value]&#x3D;&quot;groupedEvents()&quot; class&#x3D;&quot;case-manager-panel-timeline&quot;&gt;
+                &lt;ng-template pTemplate&#x3D;&quot;content&quot; let-groupedEvents&gt;
+                    &lt;div&gt;
+                        &lt;div class&#x3D;&quot;onconova-case-manager-panel-timeline-event-date mb-1&quot;&gt;
+                            &lt;small&gt;
+                                @if (typeCheck.isPeriod(groupedEvents.timestamp)) {
+                                    {{ groupedEvents.timestamp.start | date }}
+                                    -
+                                    @if (groupedEvents.timestamp.end) {
+                                        {{ groupedEvents.timestamp?.end | date }}
+                                    } @else {
+                                        Ongoing
+                                    }
                                 } @else {
-                                    Ongoing
+                                    {{ groupedEvents.timestamp | date }}
                                 }
-                            } @else {
-                                {{ groupedEvents.timestamp | date }}
+                            &lt;/small&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;flex flex-column gap-3&quot;&gt;
+                            @for (event of groupedEvents.events; track event.id) {
+                                &lt;div (click)&#x3D;&quot;onEventClick.emit(event)&quot; class&#x3D;&quot;onconova-case-manager-panel-timeline-event-entry cursor-pointer&quot;&gt;
+                                    &lt;div class&#x3D;&quot;onconova-case-manager-panel-timeline-event-icon&quot;&gt;&lt;/div&gt;
+                                    @let component &#x3D; customEventComponent();
+                                    @if (component) {
+                                        &lt;ng-container [ngComponentOutlet]&#x3D;&quot;component&quot; [ngComponentOutletInputs]&#x3D;&quot;{ event: event }&quot; style&#x3D;&quot;width: 100%&quot;/&gt;
+                                    } @else {
+                                        &lt;div class&#x3D;&quot;onconova-case-manager-panel-timeline-event-description&quot;&gt;
+                                        {{ event.description }}
+                                        &lt;/div&gt;
+                                    }
+                                &lt;/div&gt;                        
                             }
-                        &lt;/small&gt;
-                    &lt;/div&gt;
-                    &lt;div class&#x3D;&quot;flex flex-column gap-3&quot;&gt;
-                        @for (event of groupedEvents.events; track event.id) {
-                            &lt;div (click)&#x3D;&quot;onEventClick.emit(event)&quot; class&#x3D;&quot;onconova-case-manager-panel-timeline-event-entry cursor-pointer&quot;&gt;
-                                &lt;div class&#x3D;&quot;onconova-case-manager-panel-timeline-event-icon&quot;&gt;&lt;/div&gt;
-                                @let component &#x3D; customEventComponent();
-                                @if (component) {
-                                    &lt;ng-container [ngComponentOutlet]&#x3D;&quot;component&quot; [ngComponentOutletInputs]&#x3D;&quot;{ event: event }&quot; style&#x3D;&quot;width: 100%&quot;/&gt;
-                                } @else {
-                                    &lt;div class&#x3D;&quot;onconova-case-manager-panel-timeline-event-description&quot;&gt;
-                                    {{ event.description }}
-                                    &lt;/div&gt;
-                                }
-                            &lt;/div&gt;                        
-                        }
-                    &lt;/div&gt;
-                &lt;/div&gt;                    
-            &lt;/ng-template&gt;
-        &lt;/p-timeline&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;                    
+                &lt;/ng-template&gt;
+            &lt;/p-timeline&gt;
+        }
     &#x60;,
     imports: [
         CommonModule,
@@ -303,6 +318,23 @@ export class CaseManagerPanelTimelineComponent {
     public events &#x3D; input.required&lt;any[]&gt;()
     public icon &#x3D; input&lt;LucideIconData&gt;()
     public customEventComponent &#x3D; input&lt;Type&lt;any&gt;&gt;()
+    public graphChartComponent &#x3D; input&lt;Type&lt;any&gt;&gt;()
+    public graphViewEnabled &#x3D; input&lt;boolean&gt;(false)
+
+    readonly chartClickHandler &#x3D; (event: any) &#x3D;&gt; this.onEventClick.emit(event);
+
+    private readonly _userMode &#x3D; signal&lt;&#x27;list&#x27; | &#x27;graph&#x27; | null&gt;(null);
+
+    public readonly viewMode &#x3D; computed&lt;&#x27;list&#x27; | &#x27;graph&#x27;&gt;(() &#x3D;&gt; {
+        const userMode &#x3D; this._userMode();
+        if (userMode !&#x3D;&#x3D; null) return userMode;
+        return this.graphViewEnabled() &amp;&amp; this.events().length &gt;&#x3D; 3 ? &#x27;graph&#x27; : &#x27;list&#x27;;
+    });
+
+    setViewMode(mode: &#x27;list&#x27; | &#x27;graph&#x27;) {
+        this._userMode.set(mode);
+    }
+
     public groupedEvents: Signal&lt;{timestamp: Date | Period, events: any[]}[]&gt; &#x3D; computed(
         () &#x3D;&gt; {
             let eventMap &#x3D; this.events().map((event) &#x3D;&gt; {

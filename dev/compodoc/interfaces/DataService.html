@@ -348,6 +348,8 @@ export class CaseManagerPanelComponent {
     public title &#x3D; input&lt;string&gt;();
     public icon &#x3D; input.required&lt;LucideIconData&gt;();
     public customEventComponent &#x3D; input&lt;Type&lt;any&gt;&gt;();
+    public graphChartComponent &#x3D; input&lt;Type&lt;any&gt;&gt;();
+    public graphViewEnabled &#x3D; input&lt;boolean&gt;(false);
 
     protected dataCompletionStatus &#x3D; rxResource({
         request: () &#x3D;&gt; ({caseId: this.caseId(), category: this.category()}),

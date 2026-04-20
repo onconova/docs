@@ -211,14 +211,17 @@ import { Button } from &quot;primeng/button&quot;;
 import { ConfirmDialog } from &quot;primeng/confirmdialog&quot;;
 import { DataView } from &quot;primeng/dataview&quot;;
 import { DatePicker } from &quot;primeng/datepicker&quot;;
+import { DialogService, DynamicDialogRef } from &quot;primeng/dynamicdialog&quot;;
 import { Fluid } from &quot;primeng/fluid&quot;;
 import { Menu } from &quot;primeng/menu&quot;;
 import { Skeleton } from &quot;primeng/skeleton&quot;;
 import { TableModule } from &quot;primeng/table&quot;;
 import { TagModule } from &quot;primeng/tag&quot;;
 import { ToggleSwitch } from &quot;primeng/toggleswitch&quot;;
+import { GraduationCap } from &quot;lucide-angular&quot;;
 import { BehaviorSubject, forkJoin, from, map, mergeMap, Observable, toArray } from &quot;rxjs&quot;;
 import { UserBadgeComponent } from &quot;src/app/shared/components/user-badge/user-badge.component&quot;;
+import { IdenticonComponent } from &quot;src/app/shared/components/identicon/identicon.component&quot;;
 import { AccessRoles, Cohort, CohortsService, DatasetsService, Period, ProjectCreate, ProjectDataManagerGrant, ProjectsService, ProjectStatusChoices, User, UsersService } from &quot;onconova-api-client&quot;;
 import { CohortSearchItemComponent } from &quot;../cohorts/cohort-search/components/cohort-search-item/cohort-search-item.component&quot;;
 import { AuthService } from &quot;src/app/core/auth/services/auth.service&quot;;
@@ -228,6 +231,8 @@ import { UserSelectorComponent } from &quot;src/app/shared/components/user-selec
 import { Divider } from &quot;primeng/divider&quot;;
 import { Card } from &quot;primeng/card&quot;;
 import { Chip } from &quot;primeng/chip&quot;;
+import { ProjectFormComponent } from &quot;../forms/projects-form/projects-form.component&quot;;
+import { ModalFormHeaderComponent } from &quot;src/app/features/forms/modal-form-header.component&quot;;
 
 interface ProjectMember extends User {
     authorization: ProjectDataManagerGrant
@@ -236,8 +241,10 @@ interface ProjectMember extends User {
 @Component({
     selector: &#x27;onconova-project-management&#x27;,
     templateUrl: &#x27;./project-management.component.html&#x27;,
+    styleUrl: &#x27;./project-management.component.scss&#x27;,
     providers: [
-        ConfirmationService
+        ConfirmationService,
+        DialogService,
     ],
     imports: [
     Fluid,
@@ -272,6 +279,10 @@ export class ProjectManagementComponent {
     readonly #confirmationService &#x3D; inject(ConfirmationService);
     readonly #cohortsService &#x3D; inject(CohortsService);
     readonly #datasetsService &#x3D; inject(DatasetsService);
+    readonly #dialogService &#x3D; inject(DialogService);
+    #modalFormRef: DynamicDialogRef | undefined;
+
+    protected readonly ProjectStatusChoices &#x3D; ProjectStatusChoices;
 
     public readonly currentUser &#x3D; computed(() &#x3D;&gt; this.#authService.user())
 
@@ -512,6 +523,30 @@ export class ProjectManagementComponent {
 
     addMember(member: string) {
         this.updateProjectMembers([...(this.project.value()?.members || []), member])
+    }
+
+    openEditProjectDialog() {
+        const project &#x3D; this.project.value();
+        this.#modalFormRef &#x3D; this.#dialogService.open(ProjectFormComponent, {
+            inputValues: {
+                initialData: project,
+                resourceId: project?.id,
+            },
+            data: {
+                title: &#x27;Project&#x27;,
+                subtitle: &#x27;Edit project details&#x27;,
+                icon: GraduationCap,
+            },
+            templates: { header: ModalFormHeaderComponent },
+            modal: true,
+            closable: true,
+            width: &#x27;45vw&#x27;,
+            styleClass: &#x27;onconova-modal-form&#x27;,
+            breakpoints: { &#x27;1700px&#x27;: &#x27;50vw&#x27;, &#x27;960px&#x27;: &#x27;75vw&#x27;, &#x27;640px&#x27;: &#x27;90vw&#x27; },
+        });
+        this.#modalFormRef.onClose.subscribe((data: any) &#x3D;&gt; {
+            if (data?.saved) { this.project.reload(); }
+        });
     }
 
     private updateProjectMembers(members: string[]) {

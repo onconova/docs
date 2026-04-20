@@ -185,6 +185,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Default value</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -198,6 +199,8 @@
                                                     No
                                             </td>
 
+                                            <td>
+                                            </td>
 
                                         </tr>
                                         <tr>
@@ -210,6 +213,8 @@
                                                     No
                                             </td>
 
+                                            <td>
+                                            </td>
 
                                         </tr>
                                         <tr>
@@ -222,6 +227,9 @@
                                                     No
                                             </td>
 
+                                            <td>
+                                                    <code>&#x27;&#x27;</code>
+                                            </td>
 
                                         </tr>
                                     </tbody>
@@ -251,8 +259,8 @@
     name: &#x27;replace&#x27; 
 })
 export class ReplacePipe implements PipeTransform {
-  transform(value: string, strToReplace: string, replacementStr: string): string {
-    if (!value || !strToReplace || !replacementStr) {
+  transform(value: string, strToReplace: string, replacementStr: string &#x3D; &#x27;&#x27;): string {
+    if (!value || !strToReplace) {
       return value;
     }
     return value.replace(new RegExp(strToReplace, &#x27;g&#x27;), replacementStr);
